@@ -1,0 +1,232 @@
+/* ============================================================
+   TOKENS.CSS — Design System Variables
+   ✏️  CUSTOMIZE HERE: Change colors, fonts, spacing
+   ============================================================ */
+
+/* ── LIGHT THEME (default) ── */
+:root,
+[data-theme="light"] {
+  /* Brand Colors — user palette: navy, cream, gold */
+  --clr-accent:        #0A2947; /* primary navy */
+  --clr-accent-2:      #0B1849; /* deep navy */
+  --clr-accent-3:      #E4B028; /* gold */
+  --clr-accent-rgb:    10, 41, 71;
+  /* Semantic brand aliases */
+  --clr-brand-primary:   var(--clr-accent);
+  --clr-brand-secondary: var(--clr-accent-2);
+  --clr-brand-tertiary:  var(--clr-gold);
+  --clr-accent-2-rgb:  11, 24, 73;
+  --clr-accent-3-rgb:  228, 176, 40;
+
+  /* Backgrounds — warm cream / off-white */
+  --clr-bg:            #F3E4C9; /* cream page background */
+  --clr-bg-2:          #EBEDE3; /* off-white surfaces */
+  --clr-bg-3:          #F8F6F1;
+  --clr-bg-card:       #FFFFFF;
+  --clr-bg-card-hover: #F3F0E8;
+
+  /* Borders */
+  --clr-border:        rgba(10, 41, 71, 0.06);
+  --clr-border-hover:  rgba(228, 176, 40, 0.18);
+
+  /* Text */
+  --clr-text:          #0B1849; /* dark navy text */
+  --clr-text-2:        #475569;
+  --clr-text-muted:    #6B7280;
+  --clr-text-on-accent:#FFFFFF;
+  /* Border RGB for rgba() usage */
+  --clr-border-rgb:    10, 41, 71;
+
+  /* Shadows */
+  --shadow-sm:   0 1px 4px rgba(10,41,71,.04);
+  --shadow-md:   0 6px 16px rgba(10,41,71,.06);
+  --shadow-lg:   0 14px 40px rgba(10,41,71,.08);
+  --shadow-card: 0 4px 12px rgba(10,41,71,.04);
+
+  /* Status colors */
+  --clr-gold:   #E4B028;
+  --clr-teal:   #10B981;
+  --clr-blue:   #0B1849;
+  --clr-red:    #EF4444;
+
+  /* Nav */
+  --nav-bg:     rgba(243,228,201,0.92);
+  --nav-border: rgba(10,41,71,0.06);
+
+  /* Glass effect */
+  --glass-bg:   rgba(235,237,227,0.70);
+  --glass-border: rgba(10,41,71,0.05);
+}
+
+/* ── DARK THEME ── */
+[data-theme="dark"] {
+  /* Brand Colors mapped for dark mode */
+  --clr-accent:        #E4B028; /* gold accent on dark */
+  --clr-accent-2:      #F3E4C9; /* cream secondary */
+  --clr-accent-3:      #0A2947; /* navy as tertiary */
+  --clr-accent-rgb:    228, 176, 40;
+  --clr-accent-2-rgb:  243, 228, 201;
+  --clr-accent-3-rgb:  10, 41, 71;
+  /* Semantic brand aliases */
+  --clr-brand-primary:   var(--clr-accent);
+  --clr-brand-secondary: var(--clr-accent-2);
+  --clr-brand-tertiary:  var(--clr-gold);
+
+  /* Backgrounds — deep navy surfaces */
+  --clr-bg:            #0A2947;
+  --clr-bg-2:          #0B1849;
+  --clr-bg-3:          #07102a;
+  --clr-bg-card:       #0C2140;
+  --clr-bg-card-hover: #0A2947;
+
+  /* Borders */
+  --clr-border:        rgba(235,237,227,0.06);
+  --clr-border-hover:  rgba(228,176,40,0.18);
+
+  /* Text — light cream on dark bg */
+  --clr-text:          #EBEDE3;
+  --clr-text-2:        #F3E4C9;
+  --clr-text-muted:    #D1CFCB;
+  --clr-text-on-accent:#000000;
+  /* Border RGB for rgba() usage */
+  --clr-border-rgb:    235, 237, 227;
+
+  /* Shadows */
+  --shadow-sm:   0 2px 8px rgba(0,0,0,.6);
+  --shadow-md:   0 6px 28px rgba(0,0,0,.7);
+  --shadow-lg:   0 16px 64px rgba(0,0,0,.8);
+  --shadow-card: 0 6px 24px rgba(0,0,0,.6);
+
+  /* Status colors */
+  --clr-gold:   #E4B028;
+  --clr-teal:   #34D399;
+  --clr-blue:   #60A5FA;
+  --clr-red:    #F87171;
+
+  /* Nav */
+  --nav-bg:     rgba(10,41,71,0.85);
+  --nav-border: rgba(235,237,227,0.08);
+
+  /* Glass effect */
+  --glass-bg:   rgba(10,41,71,0.72);
+  --glass-border: rgba(235,237,227,0.06);
+
+  /* ID card tied to brand tokens */
+  --id-accent-top:  var(--clr-bg-3);
+  --id-accent-gold: var(--clr-brand-tertiary);
+}
+
+/* ── SHARED TOKENS (theme-independent) ── */
+:root {
+  /* Typography */
+  --font-display: 'Outfit', sans-serif;
+  --font-body:    'Inter', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  /* Letter Spacing */
+  --ls-tight:  -0.04em;
+  --ls-normal:  0;
+  --ls-wide:    0.12em;
+  --letter-tight: -0.04em;
+  --letter-default: 0;
+  --letter-wide: 0.12em;
+
+  /* Font sizes (Major Third scale 1.25×) */
+  --fs-2xs:  0.64rem;
+  --fs-xs:   0.8rem;
+  --fs-sm:   1rem;
+  --fs-base: 1.25rem;
+  --fs-md:   1.563rem;
+  --fs-lg:   1.953rem;
+  --fs-xl:   2.441rem;
+  --fs-2xl:  3.052rem;
+  --fs-3xl:  clamp(2rem, 4vw, 2.75rem);
+  --fs-4xl:  clamp(2.5rem, 5.5vw, 3.75rem);
+  --fs-hero: clamp(3rem, 7vw, 5rem);
+
+  /* Spacing */
+  --sp-1: 4px;   --sp-2: 8px;   --sp-3: 12px;
+  --sp-4: 16px;  --sp-5: 20px;  --sp-6: 24px;
+  --sp-8: 32px;  --sp-10: 40px; --sp-12: 48px;
+  --sp-14: 56px;
+  --sp-16: 64px; --sp-20: 80px; --sp-24: 96px;
+
+  /* Border radius */
+  --r-sm:   8px;
+  --r-md:   14px;
+  --r-lg:   20px;
+  --r-xl:   28px;
+  --r-2xl:  36px;
+  --r-full: 9999px;
+  --r-card: var(--r-xl);
+
+  /* Transitions */
+  --t-fast:     150ms ease;
+  --t-base:     250ms ease;
+  --t-slow:     400ms ease;
+  --t-spring:   350ms cubic-bezier(0.34,1.56,0.64,1);
+  --t-entrance: 600ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Shadows & Glows */
+  --shadow-sm:      0 1px 4px rgba(0,0,0,.04);
+  --shadow-md:      0 6px 16px rgba(0,0,0,.06);
+  --shadow-lg:      0 14px 40px rgba(0,0,0,.08);
+  --shadow-card:    0 4px 12px rgba(0,0,0,.04);
+  --shadow-glow:    0 0 20px rgba(var(--clr-accent-rgb), 0.25);
+  --shadow-glow-sm: 0 0 8px rgba(var(--clr-accent-rgb), 0.4);
+
+/* ── STAT ITEM (unified component for hero & about stats) ── */
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--clr-bg-card);
+  padding: 16px 14px;
+  border-radius: var(--r-md);
+  color: var(--clr-text);
+}
+.stat-item .stat-item-n {
+  display: block; font-family: var(--font-display);
+  font-size: var(--fs-2xl); font-weight: 800; color: var(--clr-accent);
+  line-height: 1;
+}
+.stat-item .stat-item-l {
+  display: block; font-size: var(--fs-xs); text-transform: uppercase;
+  letter-spacing: var(--letter-wide); color: var(--clr-text-muted); margin-top: 6px;
+}
+
+  /* Nav height */
+  --nav-h: 68px;
+
+  /* Max widths */
+  --max-w: 1200px;
+  --max-w-text: 680px;
+}
+
+/* ── ACCESSIBILITY: Focus-visible keyboard nav ── */
+:focus-visible {
+  outline: 2px solid var(--clr-accent);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
+}
+
+/* ── ACCESSIBILITY: Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .id-card-inner        { transition: none !important; transform: none !important; }
+  .moving-ticker-track  { animation: none !important; }
+  .status-dot           { animation: none !important; }
+  .scroll-line          { animation: none !important; }
+}
+
+/* ── ACCESSIBILITY: High contrast support ── */
+@media (forced-colors: active) {
+  .btn-primary { forced-color-adjust: none; }
+  .status-dot  { forced-color-adjust: none; }
+}

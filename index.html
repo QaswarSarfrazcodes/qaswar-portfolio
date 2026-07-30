@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qaswar Sarfraz — Flutter Developer &amp; AI Engineer | Islamabad</title>
+  <meta name="description"
+    content="Flutter Developer &amp; AI Engineer based in Islamabad. Shipped Trip Line solo in 6 weeks with a live AI backend. Now building at CSOFT Systems.">
+  <meta name="author" content="Qaswar Sarfraz">
+  <meta name="keywords"
+    content="Flutter developer Pakistan, AI engineer Islamabad, Dart developer, mobile app developer, Supabase Flutter, LLM integration">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://qaswarsarfraz.vercel.app">
+
+  <!-- ══ OPEN GRAPH / SOCIAL ══ -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://qaswarsarfraz.vercel.app">
+  <meta property="og:title" content="Qaswar Sarfraz — Flutter Developer &amp; AI Engineer">
+  <meta property="og:description"
+    content="SE student at NUML building AI-integrated Flutter apps. Shipped Trip Line solo in 6 weeks. 11 industry certifications. Mobile Application Developer at CSOFT Systems.">
+  <meta property="og:image" content="https://qaswarsarfraz.vercel.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Qaswar Sarfraz Portfolio">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ══ TWITTER CARD ══ -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Qaswar Sarfraz — Flutter Developer &amp; AI Engineer">
+  <meta name="twitter:description" content="Building AI-integrated Flutter apps. Available July 2026.">
+  <meta name="twitter:image" content="https://qaswarsarfraz.vercel.app/assets/og-image.png">
+
+  <!-- ══ FAVICON ══ -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0A2947">
+
+  <noscript>
+    <style>
+      .tw-cursor {
+        display: none;
+      }
+
+      #typewriter {
+        display: inline;
+      }
+
+      [data-target]::after {
+        content: attr(data-target);
+      }
+    </style>
+  </noscript>
+
+  <!-- ══ FONTS ══ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&display=swap">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+
+  <!-- ══ CSS ══ -->
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="pages.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Qaswar Sarfraz",
+    "jobTitle": "Flutter Developer & AI Engineer",
+    "description": "Software Engineering student at NUML Islamabad building production Flutter apps with real AI integration.",
+    "url": "https://qaswarsarfraz.vercel.app",
+    "email": "qaswarsofttec@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Islamabad",
+      "addressCountry": "PK"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "National University of Modern Languages",
+      "url": "https://numl.edu.pk"
+    },
+    "knowsAbout": ["Flutter", "Dart", "AI Integration", "Supabase", "LLM APIs", "Groq", "Llama", "PostgreSQL", "Java", "Python"],
+    "sameAs": [
+      "https://linkedin.com/in/qaswar-sarfraz-051111313",
+      "https://github.com/QaswarSarfrazcodes"
+    ]
+  }
+  </script>
+</head>
+
+<body data-page="home">
+
+  <div id="progress-bar" role="progressbar" aria-hidden="true"></div>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Qaswar Sarfraz — Home">
+        <img src="assets/signaturewhite.png" alt="" class="logo-signature logo-signature--white" aria-hidden="true" width="120"
+          height="68" />
+        <img src="assets/signatureblack.png" alt="" class="logo-signature logo-signature--black" aria-hidden="true" width="120"
+          height="68" />
+        <span>Qaswar<span class="nav-logo-dot" aria-hidden="true">.</span></span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html"          class="nav-link" data-page="home">Home</a></li>
+        <li><a href="experience.html"     class="nav-link" data-page="experience">Experience</a></li>
+        <li><a href="projects.html"       class="nav-link" data-page="projects">Projects</a></li>
+        <li><a href="skills.html"         class="nav-link" data-page="skills">Skills</a></li>
+        <li><a href="certifications.html" class="nav-link" data-page="certs">Certifications</a></li>
+        <li><a href="education.html"      class="nav-link" data-page="education">Education</a></li>
+        <li><a href="contact.html"        class="nav-link" data-page="contact">Contact</a></li>
+      </ul>
+      <button id="themeToggle" class="theme-toggle" aria-label="Switch to light mode">🌙</button>
+      <a href="contact.html" class="btn btn-sm nav-cta hire-me-btn">Hire Me →</a>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false"
+        aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Site navigation">
+    <button class="mobile-close" id="mobileClose" aria-label="Close navigation menu">✕</button>
+    <ul role="list" class="mobile-menu-list">
+      <li><a href="index.html"          class="mobile-link" data-page="home">Home</a></li>
+      <li><a href="experience.html"     class="mobile-link" data-page="experience">Experience</a></li>
+      <li><a href="projects.html"       class="mobile-link" data-page="projects">Projects</a></li>
+      <li><a href="skills.html"         class="mobile-link" data-page="skills">Skills</a></li>
+      <li><a href="certifications.html" class="mobile-link" data-page="certs">Certifications</a></li>
+      <li><a href="education.html"      class="mobile-link" data-page="education">Education</a></li>
+      <li><a href="contact.html"        class="mobile-link" data-page="contact">Contact</a></li>
+    </ul>
+    <div class="mobile-menu-bottom">
+      <a href="mailto:qaswarsofttec@gmail.com" class="mobile-social-btn" aria-label="Send email to Qaswar">✉</a>
+      <a href="https://linkedin.com/in/qaswar-sarfraz-051111313" target="_blank" rel="noopener noreferrer me"
+        class="mobile-social-btn" aria-label="Qaswar on LinkedIn">in</a>
+      <a href="https://github.com/QaswarSarfrazcodes" target="_blank" rel="noopener noreferrer me"
+        class="mobile-social-btn" aria-label="Qaswar on GitHub">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path
+            d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+        </svg>
+      </a>
+      <a href="https://www.fiverr.com/s/gDerbGL" target="_blank" rel="noopener noreferrer me" class="mobile-social-btn"
+        aria-label="Qaswar on Fiverr">
+        <svg width="15" height="15" viewBox="0 0 508.02 508.02" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <circle cx="254.01" cy="254.01" r="254.01" fill="#1dbf73" />
+          <circle cx="315.97" cy="162.19" r="26.87" fill="#fff" />
+          <path
+            d="M345.87,207.66h-123V199.6c0-15.83,15.83-16.13,23.89-16.13,9.25,0,13.44.9,13.44.9v-43.6a155.21,155.21,0,0,0-19.71-1.19c-25.68,0-73.16,7.16-73.16,61.51V208h-22.4v40.31h22.4v85.1h-20.9v40.31H247.34V333.37H222.85v-85.1H290v85.1H269.13v40.31h97.65V333.37H345.87Z"
+            transform="translate(-1.83 -0.98)" fill="#fff" />
+        </svg>
+      </a>
+      <button id="themeToggleMobile" class="mobile-social-btn" aria-label="Toggle color theme">🌙</button>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ═══════════════════ HERO ═══════════════════ -->
+    <section id="hero" class="hero-section" aria-labelledby="hero-heading">
+      <div id="particles-js" aria-hidden="true"></div>
+      <div class="hero-mesh" aria-hidden="true"></div>
+      <div class="hero-dots" aria-hidden="true"></div>
+      <div class="container hero-container">
+
+        <!-- LEFT -->
+        <div class="hero-left">
+          <div class="hero-eyebrow">
+            The dev who shipped a production AI app before graduation
+          </div>
+          <h1 id="hero-heading" class="hero-name">
+            Qaswar<br><span class="accent">Sarfraz</span>
+          </h1>
+          <p class="hero-role-static">Flutter Developer · AI Engineer</p>
+          <p class="hero-role" aria-live="polite" aria-atomic="true">
+            <span id="typewriter">Flutter Developer</span><span class="tw-cursor" aria-hidden="true"></span>
+          </p>
+          <p class="hero-desc">
+            Building AI-powered Flutter apps at NUML & CSOFT Systems — 2 production apps with Groq AI, Supabase, and 6 facial analysis modules.
+          </p>
+          <div class="numl-card">
+            <div class="numl-icon">
+              <img src="assets/numllogo.png" alt="NUML logo" loading="lazy" width="40" height="40" class="numl-icon-img" />
+            </div>
+            <div class="numl-info">
+              <div class="numl-name">NUML Islamabad</div>
+              <div class="numl-sub">Software Engineering</div>
+            </div>
+          </div>
+          <div class="hero-ctas">
+            <a href="projects.html" class="btn btn-primary">View Projects →</a>
+            <a href="resume/Qaswar_Sarfraz_Resume.pdf" download class="btn btn-outline">Download CV ↓</a>
+          </div>
+          <div class="hero-availability">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span>Interning at CSOFT Systems · Open to full-time &amp; freelance</span>
+          </div>
+          <div class="hero-social-links">
+            <a href="https://linkedin.com/in/qaswar-sarfraz-051111313" target="_blank" rel="noopener noreferrer me"
+              class="hero-social-link" aria-label="Qaswar on LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+            <a href="https://www.fiverr.com/s/gDerbGL" target="_blank" rel="noopener noreferrer me"
+              class="hero-social-link btn-fiverr" aria-label="Qaswar on Fiverr">
+              <svg width="16" height="16" viewBox="0 0 508.02 508.02" fill="none" aria-hidden="true">
+                <circle cx="254.01" cy="254.01" r="254.01" fill="#1dbf73" />
+                <circle cx="315.97" cy="162.19" r="26.87" fill="#fff" />
+                <path
+                  d="M345.87,207.66h-123V199.6c0-15.83,15.83-16.13,23.89-16.13,9.25,0,13.44.9,13.44.9v-43.6a155.21,155.21,0,0,0-19.71-1.19c-25.68,0-73.16,7.16-73.16,61.51V208h-22.4v40.31h22.4v85.1h-20.9v40.31H247.34V333.37H222.85v-85.1H290v85.1H269.13v40.31h97.65V333.37H345.87Z"
+                  transform="translate(-1.83 -0.98)" fill="#fff" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- RIGHT: Interactive 3D ID Profile Card -->
+        <div class="hero-visual" aria-label="Qaswar profile card — hover to flip">
+          <div class="id-card-wrapper" data-reveal="scale">
+            <p class="id-card-hint" aria-hidden="true">Hover to flip</p>
+            <div class="lanyard-clip"></div>
+            <div class="lanyard"></div>
+            <div class="id-card-inner">
+
+              <!-- FRONT CARD -->
+              <div class="id-card-side front">
+                <div class="accent-top"></div>
+                <div class="accent-top-left"></div>
+                <div class="accent-bottom"></div>
+
+                <div class="idc-face">
+                  <div class="idc-logo-row">
+                    <span class="idc-logo-text">Qaswar Sarfraz</span>
+                  </div>
+
+                  <div class="idc-photo">
+                    <img src="assets/qaswar profile picture.jpeg" alt="Qaswar Sarfraz" class="idc-photo-img" loading="eager"
+                      fetchpriority="high" decoding="sync">
+                  </div>
+
+                  <div class="idc-name-block">
+                    <div class="idc-name">Qaswar Sarfraz</div>
+                    <div class="idc-role">Flutter Developer · Final Year</div>
+                  </div>
+
+                  <div class="idc-rule"></div>
+
+                  <div class="idc-info">
+                    <div class="idc-info-row">
+                      <span class="idc-info-label">University</span>
+                      <span class="idc-info-value">NUML, Islamabad</span>
+                    </div>
+                    <div class="idc-info-row">
+                      <span class="idc-info-label">Degree</span>
+                      <span class="idc-info-value">B.E. Software Eng.</span>
+                    </div>
+                    <div class="idc-info-row">
+                      <span class="idc-info-label">Semester</span>
+                      <span class="idc-info-value">7th · Final Year</span>
+                    </div>
+                    <div class="idc-info-row">
+                      <span class="idc-info-label">Valid Thru</span>
+                      <span class="idc-info-value idc-gold">Jun 2027</span>
+                    </div>
+                    <div class="idc-info-row">
+                      <span class="idc-info-label">Currently</span>
+                      <span class="idc-info-value">CSOFT Systems</span>
+                    </div>
+                  </div>
+
+                  <div class="idc-barcode-block">
+                    <div class="idc-barcode" id="barcode-front"></div>
+                    <div class="idc-barcode-num">NUML · FL23734</div>
+                  </div>
+
+                  <div class="idc-sig idc-sig--front">
+                    <span class="idc-sig-label">Signature</span>
+                    <img src="assets/signaturewhite.png" alt="Qaswar Sarfraz signature" class="idc-sig-img idc-sig-img--white"
+                      loading="lazy" />
+                    <img src="assets/signatureblack.png" alt="Qaswar Sarfraz signature" class="idc-sig-img idc-sig-img--black"
+                      loading="lazy" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- BACK CARD -->
+              <div class="id-card-side back">
+                <div class="accent-top"></div>
+                <div class="accent-top-left"></div>
+                <div class="accent-bottom"></div>
+
+                <div class="idc-face idc-face--back">
+                  <div class="idc-logo-row">
+                    <span class="idc-logo-text">Qaswar Sarfraz</span>
+                  </div>
+
+                  <div class="idc-back-title">Skills &amp; Info</div>
+                  <div class="idc-rule"></div>
+
+                  <div class="idc-terms">
+                    <div class="idc-term">
+                      <div class="idc-term-dot"></div>
+                      <div class="idc-term-text">Flutter &amp; Dart — 2 production apps (Android &amp; iOS)</div>
+                    </div>
+                    <div class="idc-term">
+                      <div class="idc-term-dot"></div>
+                      <div class="idc-term-text">AI — Groq Llama 3.3 70B, 6 facial CV modules, Riverpod</div>
+                    </div>
+                    <div class="idc-term">
+                      <div class="idc-term-dot"></div>
+                      <div class="idc-term-text">Backend — Supabase, PostgreSQL RLS, Hive, Dio REST</div>
+                    </div>
+                    <div class="idc-term">
+                      <div class="idc-term-dot"></div>
+                      <div class="idc-term-text">Tools — Git, Android Studio, Flutter Map, GoRouter</div>
+                    </div>
+                    <div class="idc-term">
+                      <div class="idc-term-dot"></div>
+                      <div class="idc-term-text">11 verified certifications · IBM, Michigan, Google, Meta</div>
+                    </div>
+                  </div>
+
+                  <div class="idc-contact">
+                    <div class="idc-contact-label">Contact</div>
+                    <div class="idc-contact-value">qaswarsofttec@gmail.com</div>
+                    <div class="idc-contact-link">linkedin.com/in/qaswar-sarfraz-051111313</div>
+                    <div class="idc-contact-link">github.com/QaswarSarfrazcodes</div>
+                  </div>
+
+                  <div class="idc-sig idc-sig--back">
+                    <span class="idc-sig-label">Signature</span>
+                    <img src="assets/signaturewhite.png" alt="Qaswar Sarfraz signature" class="idc-sig-img idc-sig-img--white"
+                      loading="lazy" />
+                    <img src="assets/signatureblack.png" alt="Qaswar Sarfraz signature" class="idc-sig-img idc-sig-img--black"
+                      loading="lazy" />
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="scroll-hint" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ── MOVING BRAND TICKER ── -->
+    <div class="ticker-clip" aria-hidden="true">
+      <div class="moving-ticker-wrap">
+        <div class="moving-ticker-track">
+          <div class="moving-ticker-list">
+            <span>Flutter Developer</span>
+            <span class="ticker-dot">✦</span>
+            <span>AI App Builder</span>
+            <span class="ticker-dot">✦</span>
+            <span>Mobile Engineer</span>
+            <span class="ticker-dot">✦</span>
+            <span>Supabase &amp; Postgres</span>
+            <span class="ticker-dot">✦</span>
+            <span>LLM Integrations</span>
+            <span class="ticker-dot">✦</span>
+            <span>NUML SE Student</span>
+            <span class="ticker-dot">✦</span>
+          </div>
+          <div class="moving-ticker-list" aria-hidden="true">
+            <span>Flutter Developer</span>
+            <span class="ticker-dot">✦</span>
+            <span>AI App Builder</span>
+            <span class="ticker-dot">✦</span>
+            <span>Mobile Engineer</span>
+            <span class="ticker-dot">✦</span>
+            <span>Supabase &amp; Postgres</span>
+            <span class="ticker-dot">✦</span>
+            <span>LLM Integrations</span>
+            <span class="ticker-dot">✦</span>
+            <span>NUML SE Student</span>
+            <span class="ticker-dot">✦</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════ ABOUT TEASER ═══════════════════ -->
+    <section id="about" class="section section-alt" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-grid">
+          <div class="pillars-card" data-reveal="left">
+            <div class="pillars-header">
+              <div class="pillars-dot"></div>
+              <span>Technical Pillars</span>
+            </div>
+            <div class="pillars-grid">
+              <div class="pillar-item">
+                <span class="pillar-icon"><i class="ti ti-device-mobile" aria-hidden="true"></i></span>
+                <h3 class="pillar-title">Flutter &amp; Mobile</h3>
+                <p class="pillar-desc">2 production Android &amp; iOS apps — Tripline (solo) &amp; AI Face Scanner (CSOFT Systems).
+                </p>
+              </div>
+              <div class="pillar-item">
+                <span class="pillar-icon"><i class="ti ti-brain" aria-hidden="true"></i></span>
+                <h3 class="pillar-title">AI Integration</h3>
+                <p class="pillar-desc">Integrating AI APIs (Groq Llama 3.3 70B &amp; Facial Analysis modules) into mobile apps.
+                </p>
+              </div>
+              <div class="pillar-item">
+                <span class="pillar-icon"><i class="ti ti-bolt" aria-hidden="true"></i></span>
+                <h3 class="pillar-title">Modern Backend</h3>
+                <p class="pillar-desc">Supabase Auth, PostgreSQL DB, and RESTful API integration (Dio / HTTP).</p>
+              </div>
+              <div class="pillar-item">
+                <span class="pillar-icon"><i class="ti ti-tool" aria-hidden="true"></i></span>
+                <h3 class="pillar-title">Tools &amp; Stack</h3>
+                <p class="pillar-desc">Git/GitHub pipelines, REST API design, Python (certified), clean OOP practices.</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="about-content-grid">
+              <div>
+                <div class="location-pill">
+                  <span aria-hidden="true">📍</span> Islamabad, Pakistan
+                </div>
+                <div class="section-eyebrow">About Me</div>
+                <h2 id="about-heading" class="section-title">I ship apps,<br>not just ideas</h2>
+                <p class="about-para">I'm a <strong>Software Engineering student at NUML</strong>, interning as a
+                  <strong>Mobile Application Developer at CSOFT Systems</strong>. I've shipped two production Flutter apps — <strong>Tripline</strong>, a solo AI travel ecosystem with Groq Llama 3.3 70B &amp; a Flutter Web Admin Dashboard, and <strong>AI Face Scanner</strong>, built at CSOFT Systems with 6 facial analysis modules, Riverpod, GoRouter, and Google Mobile Ads monetization.</p>
+                <p class="about-para">My strength is <strong>mobile &amp; REST API integration</strong>: Groq Llama AI, Supabase Postgres, Hive encrypted caching, REST APIs via Dio, and live maps — practical tools running in working code.</p>
+                <div class="hero-ctas about-ctas">
+                  <a href="projects.html" class="btn btn-primary">See My Work →</a>
+                  <a href="certifications.html" class="btn btn-ghost">11 Certifications</a>
+                </div>
+              </div>
+              <div class="about-sidebar">
+                <div class="numl-card">
+                  <div class="numl-icon">
+                    <img src="assets/numllogo.png" alt="" aria-hidden="true" loading="lazy" width="40" height="40"
+                      class="numl-icon-img">
+                  </div>
+                  <div class="numl-info">
+                    <div class="numl-name">NUML Islamabad</div>
+                    <div class="numl-sub">BS Software Engineering</div>
+                  </div>
+                </div>
+                <div class="ai-native-badge">
+                  <div class="ai-native-badge__label">⚡ REST &amp; AI Integration</div>
+                  <div class="ai-native-badge__body">Building Flutter mobile apps with REST APIs &amp; Groq AI — currently learning FastAPI for backend development.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ QUICK NAV CARDS ═══════════════════ -->
+    <section class="section" aria-label="Site sections">
+      <div class="container">
+        <div class="section-hd center" data-reveal>
+          <div class="section-eyebrow">Explore</div>
+          <h2 class="section-title">Everything in one place</h2>
+        </div>
+        <div class="quick-grid stagger" data-reveal>
+          <a href="projects.html" class="quick-card quick-card--projects" aria-label="View my projects">
+            <div class="ribbon">Projects</div>
+            <div class="card-icon-wrap" aria-hidden="true"><span style="font-size:2.2rem;">🚀</span></div>
+            <h3>Projects</h3>
+            <p>Shipped apps &amp; demos</p>
+            <div class="card-footer"><span class="pill">3 apps</span></div>
+          </a>
+
+          <a href="skills.html" class="quick-card quick-card--skills" aria-label="See my tech skills">
+            <div class="ribbon">Skills</div>
+            <div class="card-icon-wrap" aria-hidden="true"><img src="assets/profileapp.png" alt="Skills logo" loading="lazy" />
+            </div>
+            <h3>Skills</h3>
+            <p>Tech stack &amp; tools</p>
+            <div class="card-footer"><span class="pill">Dart · Flutter</span></div>
+          </a>
+
+          <a href="certifications.html" class="quick-card quick-card--certs" aria-label="View my certifications">
+            <div class="ribbon">Certs</div>
+            <div class="card-icon-wrap" aria-hidden="true"><span style="font-size:2.2rem;">📜</span></div>
+            <h3>Certifications</h3>
+            <p>11 verified credentials</p>
+            <div class="card-footer"><span class="pill">11</span></div>
+          </a>
+
+          <a href="education.html" class="quick-card quick-card--education" aria-label="My education at NUML">
+            <div class="ribbon">Education</div>
+            <div class="card-icon-wrap" aria-hidden="true"><img src="assets/numllogo.png" alt="NUML logo" loading="lazy" />
+            </div>
+            <h3>Education</h3>
+            <p>NUML · Final Year</p>
+            <div class="card-footer"><span class="pill">7th Sem</span></div>
+          </a>
+
+          <a href="contact.html" class="quick-card quick-card--contact" aria-label="Let's work together">
+            <div class="ribbon">Contact</div>
+            <div class="card-icon-wrap" aria-hidden="true"><img src="assets/qaswar profile picture.jpeg" alt="Contact avatar" loading="lazy" />
+            </div>
+            <h3>Contact</h3>
+            <p>Let's work together</p>
+            <div class="card-footer"><span class="pill">Hire me</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ GITHUB ACTIVITY ═══════════════════ -->
+    <section class="section section-alt" aria-labelledby="activity-heading">
+      <div class="container container--narrow">
+        <div class="section-hd center" data-reveal>
+          <div class="section-eyebrow">GitHub Activity</div>
+          <h2 id="activity-heading" class="section-title">Code, every day</h2>
+          <p class="section-desc">Consistent contribution is a habit, not a sprint.</p>
+        </div>
+        <div class="github-activity-card" data-reveal>
+          <img src="https://ghchart.rshah.org/38BDF8/QaswarSarfrazcodes"
+            alt="Qaswar Sarfraz's GitHub contribution graph showing daily coding activity" loading="lazy"
+            decoding="async" class="github-chart-img">
+          <p class="github-activity-caption">Live contribution data
+            from <a href="https://github.com/QaswarSarfrazcodes" target="_blank" rel="noopener noreferrer"
+              class="link-accent">GitHub ↗</a></p>
+          <p class="github-context">
+            156 commits in 2025 · 3 repos with real users
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ LINKEDIN RECOMMENDATIONS ═══════════════════ -->
+    <section class="section" id="recommendations" aria-labelledby="recs-heading">
+      <div class="container">
+        <div class="section-hd center" data-reveal>
+          <div class="section-eyebrow">Social Proof</div>
+          <h2 id="recs-heading" class="section-title">What colleagues say</h2>
+          <p class="section-desc">Verified LinkedIn recommendations from people I worked with at CSOFT Systems.</p>
+        </div>
+
+        <div class="recs-grid" data-reveal>
+
+          <!-- Recommendation 01: Muhammad Younas (Manager) -->
+          <article class="rec-card">
+            <div class="rec-card-top">
+              <div class="rec-avatar" aria-hidden="true">MY</div>
+              <div class="rec-meta">
+                <a href="https://www.linkedin.com/recs/received/?senderId=muhammad-younas-60a8b944"
+                   target="_blank" rel="noopener noreferrer" class="rec-name">
+                  Muhammad Younas
+                  <svg class="rec-li-icon" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <div class="rec-title">Product Manager &amp; Digital Marketing Expert · SaaS Growth Strategist</div>
+                <div class="rec-relation">
+                  <span class="rec-badge rec-badge--manager">✦ Direct Manager</span>
+                  <span class="rec-date">July 23, 2026</span>
+                </div>
+              </div>
+            </div>
+            <div class="rec-quote-wrap">
+              <svg class="rec-quote-mark" width="32" height="24" viewBox="0 0 32 24" fill="none" aria-hidden="true">
+                <path d="M8 0C3.6 0 0 3.6 0 8v16h16V8H5.6C5.6 5.6 6.4 4 8 4V0zm16 0c-4.4 0-8 3.6-8 8v16h16V8h-10.4C21.6 5.6 22.4 4 24 4V0z" fill="currentColor" opacity=".12"/>
+              </svg>
+              <blockquote class="rec-quote">
+                I had the pleasure of managing Qaswar Sarfraz during his Flutter Mobile App Development internship. He consistently demonstrated <strong>strong technical skills, professionalism, and a great work ethic</strong> while contributing to projects such as an AI Face Scanner and the Carrier Institute mobile application. Qaswar always met deadlines, showed exceptional problem-solving abilities, and maintained an excellent attitude throughout. I <strong>highly recommend him</strong> for any Flutter or mobile app development role.
+              </blockquote>
+            </div>
+          </article>
+
+          <!-- Recommendation 02: Usman Haider (Peer / Same Team) -->
+          <article class="rec-card">
+            <div class="rec-card-top">
+              <div class="rec-avatar rec-avatar--peer" aria-hidden="true">UH</div>
+              <div class="rec-meta">
+                <a href="https://www.linkedin.com/recs/received/?senderId=usman-haider-5010b73a2"
+                   target="_blank" rel="noopener noreferrer" class="rec-name">
+                  Usman Haider
+                  <svg class="rec-li-icon" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <div class="rec-title">AI Innovator · Full Stack Developer · Front End Web Developer</div>
+                <div class="rec-relation">
+                  <span class="rec-badge rec-badge--peer">✦ Same Team</span>
+                  <span class="rec-date">July 15, 2026</span>
+                </div>
+              </div>
+            </div>
+            <div class="rec-quote-wrap">
+              <svg class="rec-quote-mark" width="32" height="24" viewBox="0 0 32 24" fill="none" aria-hidden="true">
+                <path d="M8 0C3.6 0 0 3.6 0 8v16h16V8H5.6C5.6 5.6 6.4 4 8 4V0zm16 0c-4.4 0-8 3.6-8 8v16h16V8h-10.4C21.6 5.6 22.4 4 24 4V0z" fill="currentColor" opacity=".12"/>
+              </svg>
+              <blockquote class="rec-quote">
+                I had the privilege of working alongside Qaswar during our internship, and he is a <strong>remarkably good developer</strong>. While many write Flutter code just to hit deadlines, he actually sits with the widgets and state management until he <strong>deeply understands why the app behaves the way it does</strong>. Beyond his technical grit, he brings a highly structured approach to project and time management, keeping deliverables on track with absolute precision. If you need an engineer who <strong>values execution as much as clean code</strong>, I highly recommend him.
+              </blockquote>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="recs-footer" data-reveal>
+          <a href="https://www.linkedin.com/in/qaswar-sarfraz-051111313" target="_blank" rel="noopener noreferrer"
+             class="recs-linkedin-btn" aria-label="View all recommendations on LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            View all on LinkedIn ↗
+          </a>
+          <p class="recs-note">2 verified recommendations · CSOFT Systems Internship 2026</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ AVAILABILITY ═══════════════════ -->
+    <section class="section avail-section" aria-labelledby="avail-heading">
+      <div class="container">
+        <div class="avail-grid">
+          <div data-reveal="left">
+            <div class="avail-status-pill">
+              <span class="status-dot" aria-hidden="true"></span> Available for work
+            </div>
+            <h2 id="avail-heading" class="avail-headline">Let's build<br><span class="accent">something great</span>
+            </h2>
+            <p class="avail-body">Currently working as a <strong>Mobile Application Developer at CSOFT Systems</strong>
+              while completing my degree at NUML. Open to full-time opportunities and freelance work that combine
+              Flutter, AI, and cloud — remote or onsite in Islamabad / Rawalpindi.</p>
+            <div class="avail-start">Currently Interning · Open to Full-Time →</div>
+            <div class="hero-ctas avail-ctas">
+              <a href="contact.html" class="btn btn-primary">Get in Touch →</a>
+              <a href="resume/Qaswar_Sarfraz_Resume.pdf" download class="btn btn-outline">Download CV ↓</a>
+            </div>
+          </div>
+          <div class="avail-cards" data-reveal="right">
+            <div class="avail-card">
+              <div class="avail-card-icon" aria-hidden="true">✅</div>
+              <div>
+                <div class="avail-card-title">Remote Junior Dev Roles</div>
+                <div class="avail-card-sub">Full-time, Flutter or AI-integrated apps</div>
+              </div>
+            </div>
+            <a href="https://www.fiverr.com/s/gDerbGL" target="_blank" rel="noopener noreferrer me"
+              class="avail-card avail-card--link">
+              <div class="avail-card-icon" aria-hidden="true">✅</div>
+              <div>
+                <div class="avail-card-title">Freelance Projects <span class="fiverr-tag">(Fiverr ↗)</span></div>
+                <div class="avail-card-sub">Flutter mobile apps, AI integrations</div>
+              </div>
+            </a>
+            <div class="avail-card">
+              <div class="avail-card-icon" aria-hidden="true">✅</div>
+              <div>
+                <div class="avail-card-title">Contract &amp; Part-Time Work</div>
+                <div class="avail-card-sub">Alongside my current role at CSOFT Systems</div>
+              </div>
+            </div>
+            <div class="avail-card">
+              <div class="avail-card-icon" aria-hidden="true">✅</div>
+              <div>
+                <div class="avail-card-title">Open-Source Collaborations</div>
+                <div class="avail-card-sub">Flutter + AI projects</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <img src="assets/signaturewhite.png" alt="" class="logo-signature logo-signature--white" aria-hidden="true" width="120"
+          height="48" loading="lazy" />
+        <img src="assets/signatureblack.png" alt="" class="logo-signature logo-signature--black" aria-hidden="true" width="120"
+          height="48" loading="lazy" />
+        <div>
+          <div class="footer-name">Qaswar Sarfraz</div>
+          <div class="footer-copy">&copy; 2026 &middot; Built with care &amp; caffeine ☕</div>
+        </div>
+      </div>
+      <nav aria-label="Quick navigation" class="footer-nav">
+        <a href="index.html" class="footer-nav-link">Home</a>
+        <a href="projects.html" class="footer-nav-link">Projects</a>
+        <a href="skills.html" class="footer-nav-link">Skills</a>
+        <a href="certifications.html" class="footer-nav-link">Certs</a>
+        <a href="contact.html" class="footer-nav-link">Contact</a>
+      </nav>
+      <nav aria-label="Social links" class="footer-socials">
+        <a href="mailto:qaswarsofttec@gmail.com" class="footer-social" aria-label="Email Qaswar">&checkmark;</a>
+        <a href="https://linkedin.com/in/qaswar-sarfraz-051111313" target="_blank" rel="noopener noreferrer me"
+          class="footer-social" aria-label="Qaswar on LinkedIn">in</a>
+        <a href="https://github.com/QaswarSarfrazcodes" target="_blank" rel="noopener noreferrer me"
+          class="footer-social" aria-label="Qaswar on GitHub">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+          </svg>
+        </a>
+        <a href="https://www.fiverr.com/s/gDerbGL" target="_blank" rel="noopener noreferrer me" class="footer-social"
+          aria-label="Qaswar on Fiverr">
+          <svg width="14" height="14" viewBox="0 0 508.02 508.02" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <circle cx="254.01" cy="254.01" r="254.01" fill="#1dbf73" />
+            <circle cx="315.97" cy="162.19" r="26.87" fill="#fff" />
+            <path
+              d="M345.87,207.66h-123V199.6c0-15.83,15.83-16.13,23.89-16.13,9.25,0,13.44.9,13.44.9v-43.6a155.21,155.21,0,0,0-19.71-1.19c-25.68,0-73.16,7.16-73.16,61.51V208h-22.4v40.31h22.4v85.1h-20.9v40.31H247.34V333.37H222.85v-85.1H290v85.1H269.13v40.31h97.65V333.37H345.87Z"
+              transform="translate(-1.83 -0.98)" fill="#fff" />
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </footer>
+
+  <button id="scroll-top" aria-label="Scroll back to top">↑</button>
+
+  <noscript>
+    <style>
+      [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    </style>
+  </noscript>
+
+  <!-- ═══════════════════ SCRIPTS ═══════════════════ -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.16/lib/typed.min.js" defer></script>
+  <script src="config.js" defer></script>
+  <script src="main.js" defer></script>
+
+  <div class="mobile-cta-bar" aria-label="Fixed call to action" role="complementary">
+    <a href="contact.html" class="btn btn-primary btn-full" tabindex="0">📧 Hire Me</a>
+  </div>
+</body>
+
+</html>

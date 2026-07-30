@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block sensitive/asset folders from crawling
+Disallow: /assets/
+
+Sitemap: https://qaswarsarfraz.vercel.app/sitemap.xml

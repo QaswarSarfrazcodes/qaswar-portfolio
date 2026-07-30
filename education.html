@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qaswar Sarfraz — Flutter Developer & AI Engineer | Islamabad</title>
+  <meta name="description" content="Qaswar Sarfraz — Flutter Developer and AI Engineer based in Islamabad. Building production mobile apps with real AI integration. Available July 2026.">
+  <!-- ✏️ FONTS — Change in config.js font-display/font-body vars -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="pages.css">
+</head>
+<body data-page="education">
+<!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+<div id="progress-bar"></div>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Qaswar Sarfraz Home">
+      <img src="assets/signaturewhite.png" alt="Qaswar Sarfraz" class="logo-signature logo-signature--white" />
+      <img src="assets/signatureblack.png" alt="Qaswar Sarfraz" class="logo-signature logo-signature--black" />
+      <span>Qaswar<span style="color:var(--clr-accent)">.</span></span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html"          class="nav-link" data-page="home">Home</a></li>
+      <li><a href="projects.html"       class="nav-link" data-page="projects">Projects</a></li>
+      <li><a href="skills.html"         class="nav-link" data-page="skills">Skills</a></li>
+      <li><a href="certifications.html" class="nav-link" data-page="certs">Certifications</a></li>
+      <li><a href="education.html"      class="nav-link" data-page="education">Education</a></li>
+      <li><a href="contact.html"        class="nav-link" data-page="contact">Contact</a></li>
+    </ul>
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    <a href="contact.html" class="btn btn-primary btn-sm nav-cta">Hire Me →</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+  <ul role="list" style="text-align:center;">
+    <li><a href="index.html"          class="mobile-link" data-page="home">Home</a></li>
+    <li><a href="projects.html"       class="mobile-link" data-page="projects">Projects</a></li>
+    <li><a href="skills.html"         class="mobile-link" data-page="skills">Skills</a></li>
+    <li><a href="certifications.html" class="mobile-link" data-page="certs">Certifications</a></li>
+    <li><a href="education.html"      class="mobile-link" data-page="education">Education</a></li>
+    <li><a href="contact.html"        class="mobile-link" data-page="contact">Contact</a></li>
+  </ul>
+  <div class="mobile-menu-bottom">
+    <a href="mailto:qaswarsofttec@gmail.com" class="mobile-social-btn" aria-label="Email">✉</a>
+    <a href="https://linkedin.com/in/qaswar-sarfraz-051111313" target="_blank" rel="noopener" class="mobile-social-btn" aria-label="LinkedIn">in</a>
+    <a href="https://github.com/QaswarSarfrazcodes" target="_blank" rel="noopener" class="mobile-social-btn" aria-label="GitHub">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+    </a>
+    <a href="https://www.fiverr.com/s/gDerbGL" target="_blank" rel="noopener noreferrer me"
+      class="mobile-social-btn" aria-label="Qaswar on Fiverr" style="display:inline-flex;align-items:center;justify-content:center;">
+      <svg width="15" height="15" viewBox="0 0 508.02 508.02" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:15px;height:15px;">
+        <circle cx="254.01" cy="254.01" r="254.01" fill="#1dbf73"/>
+        <circle cx="315.97" cy="162.19" r="26.87" fill="#fff"/>
+        <path d="M345.87,207.66h-123V199.6c0-15.83,15.83-16.13,23.89-16.13,9.25,0,13.44.9,13.44.9v-43.6a155.21,155.21,0,0,0-19.71-1.19c-25.68,0-73.16,7.16-73.16,61.51V208h-22.4v40.31h22.4v85.1h-20.9v40.31H247.34V333.37H222.85v-85.1H290v85.1H269.13v40.31h97.65V333.37H345.87Z" transform="translate(-1.83 -0.98)" fill="#fff"/>
+      </svg>
+    </a>
+    <button id="themeToggleMobile" class="mobile-social-btn" aria-label="Toggle theme">🌙</button>
+  </div>
+</div>
+<main id="main">
+
+<section class="edu-banner">
+  <div class="edu-banner-mesh" aria-hidden="true"></div>
+  <div class="container edu-banner-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Education</span></div>
+    <div class="section-eyebrow">Academic Background</div>
+    <h1 class="page-title">Academic <span class="accent">Foundation</span></h1>
+    <p class="page-desc">Building on strong fundamentals — software engineering, algorithms, AI, and systems from one of Pakistan's leading universities.</p>
+    <div class="edu-hero-stats">
+      <div class="edu-stat">
+        <span>7th</span>
+        <small>Semester · Final Year</small>
+      </div>
+      <div class="edu-stat">
+        <span>11</span>
+        <small>Verified Certifications</small>
+      </div>
+      <div class="edu-stat">
+        <span>6w</span>
+        <small>Fast Product Builds</small>
+      </div>
+      <div class="edu-stat">
+        <span>4+</span>
+        <small>Years of Engineering</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="edu-hero reveal">
+      <div class="edu-hero-summary">
+        <div class="edu-hero-heading">
+          <div class="section-eyebrow">Academic Profile</div>
+          <h2 class="edu-hero-title">NUML Software Engineering</h2>
+          <span class="edu-chip edu-badge">7th Semester · Final Year</span>
+          <p class="edu-hero-copy">A product-led academic path focusing on AI-enabled mobile systems, intelligent backend workflows, and real-world software delivery.</p>
+        </div>
+        <div class="edu-focus-rule" aria-hidden="true"></div>
+        <div>
+          <div class="edu-focus-label">Core Focus Areas</div>
+          <div class="edu-focus-grid">
+            <span class="edu-focus-chip edu-focus-chip--mobile">Mobile Systems (Flutter)</span>
+            <span class="edu-focus-chip edu-focus-chip--ai">REST APIs &amp; AI</span>
+            <span class="edu-focus-chip edu-focus-chip--cloud">Supabase &amp; Postgres</span>
+            <span class="edu-focus-chip edu-focus-chip--product">OOP &amp; Java</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="edu-id-stack" aria-label="BS Software Engineering — student record">
+        <div class="edu-id-card edu-id-card--badge" aria-hidden="true">
+          <img src="assets/numl-logo.svg" alt="" class="edu-id-badge-logo" />
+          <div class="edu-id-badge-title">NUML<br>Islamabad</div>
+        </div>
+        <div class="edu-id-card edu-id-card--id">
+          <div class="edu-id-top">
+            <span class="edu-id-chip">Student ID</span>
+            <span class="edu-id-label">Degree Program</span>
+          </div>
+          <h3 class="edu-id-degree">BS Software Engineering</h3>
+          <div class="edu-id-rule"></div>
+          <div class="edu-id-rows">
+            <div class="edu-id-row"><span>Semester</span><strong>7th</strong></div>
+            <div class="edu-id-row"><span>Period</span><strong>Sep 2023 – Jun 2027</strong></div>
+            <div class="edu-id-row"><span>Focus</span><strong>AI, mobile, backend, systems</strong></div>
+            <div class="edu-id-row"><span>Career edge</span><strong>Product-ready software delivery</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="edu-map reveal">
+      <div class="edu-map-intro">
+        <div class="section-eyebrow">Curriculum Snapshot</div>
+        <h2 class="section-title">A learning path built around applied skills and real projects.</h2>
+        <p class="page-desc">Core courses, project work, and certifications come together to build both software craft and engineering judgment.</p>
+      </div>
+      <div class="edu-transcript">
+        <div class="transcript-intro">Academic Transcript — Core Courses & Focus</div>
+        <div class="transcript-cloud">
+          <span class="course-chip course-chip--core">Data Structures</span>
+          <span class="course-chip course-chip--core">Algorithms</span>
+          <span class="course-chip course-chip--systems">Database Systems</span>
+          <span class="course-chip course-chip--systems">Operating Systems</span>
+          <span class="course-chip course-chip--applied">Mobile App Development</span>
+          <span class="course-chip course-chip--elective">Software Architecture</span>
+          <span class="course-chip course-chip--core">Computer Networks</span>
+          <span class="course-chip course-chip--applied">AI Integration</span>
+        </div>
+        <div class="transcript-legend">
+          <span><i class="legend-dot legend-dot--core" aria-hidden="true"></i>Core CS</span>
+          <span><i class="legend-dot legend-dot--systems" aria-hidden="true"></i>Systems</span>
+          <span><i class="legend-dot legend-dot--applied" aria-hidden="true"></i>Applied</span>
+          <span><i class="legend-dot legend-dot--elective" aria-hidden="true"></i>Advanced Elective</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="edu-timeline reveal">
+      <div class="section-eyebrow">Learning Journey</div>
+      <h2 class="section-title">Milestones that shaped my growth</h2>
+      <div class="timeline-track">
+
+        <article class="timeline-node timeline-node--left">
+          <div class="timeline-node-dot"><span>2026</span></div>
+          <div class="timeline-node-body">
+            <h3>Mobile Application Developer — CSOFT Systems Internship</h3>
+            <p>Built the <strong>AI Face Scanner</strong> — a production Flutter app with 6 AI facial analysis modules
+              (Age &amp; Gender, Beauty Score, Face Resemblance, Shape Classification, Symmetry Score, Celebrity Look-Alike).
+              Architected with Riverpod, GoRouter, Supabase Auth &amp; Postgres, Hive encrypted caching, Dio REST client,
+              and Google Mobile Ads rewarded monetization (31 screens total).</p>
+          </div>
+        </article>
+
+        <article class="timeline-node timeline-node--right">
+          <div class="timeline-node-dot"><span>2026</span></div>
+          <div class="timeline-node-body">
+            <h3>AI Face Scanner — CSOFT Systems Internship</h3>
+            <p>Engineered a production-ready facial analysis Flutter app with 6 computer vision modules, Riverpod, GoRouter, Hive, and Google Mobile Ads.</p>
+          </div>
+        </article>
+
+        <article class="timeline-node timeline-node--left">
+          <div class="timeline-node-dot"><span>2026</span></div>
+          <div class="timeline-node-body">
+            <h3>Tripline — Solo AI Travel Ecosystem</h3>
+            <p>Architected and shipped a multi-featured cross-platform app with Groq Llama 3.3 70B, Supabase Postgres, and Flutter Web Admin Dashboard.</p>
+          </div>
+        </article>
+
+        <article class="timeline-node timeline-node--left">
+          <div class="timeline-node-dot"><span>2025</span></div>
+          <div class="timeline-node-body">
+            <h3>11 Industry Certifications Earned</h3>
+            <p>Expanded expertise across IBM, SkillUp Coalition, Google, Meta, University of Michigan, and University of Colorado.</p>
+          </div>
+        </article>
+
+        <article class="timeline-node timeline-node--right">
+          <div class="timeline-node-dot"><span>2024</span></div>
+          <div class="timeline-node-body">
+            <h3>Java OOP Capstone — Car Parking System</h3>
+            <p>Built a complete system using object-oriented design patterns and clean architecture principles.</p>
+          </div>
+        </article>
+
+        <article class="timeline-node timeline-node--left">
+          <div class="timeline-node-dot"><span>2023</span></div>
+          <div class="timeline-node-body">
+            <h3>Enrolled at NUML</h3>
+            <p>Started a focused Software Engineering journey with emphasis on AI, mobile, and scalable systems.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-logo">
+      <img src="assets/signaturewhite.png" alt="Qaswar Sarfraz" class="logo-signature logo-signature--white" style="height:48px;" />
+      <img src="assets/signatureblack.png" alt="Qaswar Sarfraz" class="logo-signature logo-signature--black" style="height:48px;" />
+      <div>
+        <div>Qaswar Sarfraz</div>
+        <div class="footer-copy">© 2026 · Built with care & caffeine ☕</div>
+      </div>
+    </div>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="certifications.html">Certs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="footer-socials">
+      <a href="mailto:qaswarsofttec@gmail.com" class="footer-social" aria-label="Email">✉</a>
+      <a href="https://linkedin.com/in/qaswar-sarfraz-051111313" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn">in</a>
+      <a href="https://github.com/QaswarSarfrazcodes" target="_blank" rel="noopener" class="footer-social" aria-label="GitHub">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+      </a>
+      <a href="https://www.fiverr.com/s/gDerbGL" target="_blank" rel="noopener noreferrer me"
+        class="footer-social" aria-label="Qaswar on Fiverr" style="display:inline-flex;align-items:center;justify-content:center;">
+        <svg width="14" height="14" viewBox="0 0 508.02 508.02" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:14px;height:14px;">
+          <circle cx="254.01" cy="254.01" r="254.01" fill="#1dbf73"/>
+          <circle cx="315.97" cy="162.19" r="26.87" fill="#fff"/>
+          <path d="M345.87,207.66h-123V199.6c0-15.83,15.83-16.13,23.89-16.13,9.25,0,13.44.9,13.44.9v-43.6a155.21,155.21,0,0,0-19.71-1.19c-25.68,0-73.16,7.16-73.16,61.51V208h-22.4v40.31h22.4v85.1h-20.9v40.31H247.34V333.37H222.85v-85.1H290v85.1H269.13v40.31h97.65V333.37H345.87Z" transform="translate(-1.83 -0.98)" fill="#fff"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</footer>
+<button id="scroll-top" aria-label="Scroll to top">↑</button>
+<!-- Scripts -->
+<script src="config.js" defer></script>
+<script src="main.js" defer></script>
+</body></html>

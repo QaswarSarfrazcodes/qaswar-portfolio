@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qaswar Sarfraz — Flutter Developer & AI Engineer | Islamabad</title>
+  <meta name="description" content="Qaswar Sarfraz — Flutter Developer and AI Engineer based in Islamabad. Building production mobile apps with real AI integration. Available July 2026.">
+  <!-- ✏️ FONTS — Change in config.js font-display/font-body vars -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <!-- AOS removed -->
+  <!-- CSS -->
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="pages.css">
+</head>
+
+<body data-page="projects">
+  <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+  <div id="progress-bar"></div>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Qaswar Sarfraz Home">
+        <img src="assets/signaturewhite.png" alt="Qaswar Sarfraz" class="logo-signature logo-signature--white" />
+        <img src="assets/signatureblack.png" alt="Qaswar Sarfraz" class="logo-signature logo-signature--black" />
+        <span>Qaswar<span style="color:var(--clr-accent)">.</span></span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" class="nav-link" data-page="home">Home</a></li>
+        <li><a href="projects.html" class="nav-link" data-page="projects">Projects</a></li>
+        <li><a href="skills.html" class="nav-link" data-page="skills">Skills</a></li>
+        <li><a href="certifications.html" class="nav-link" data-page="certs">Certifications</a></li>
+        <li><a href="education.html" class="nav-link" data-page="education">Education</a></li>
+        <li><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
+      </ul>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      <a href="contact.html" class="btn btn-sm nav-cta hire-me-btn">Hire Me →</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
+    <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+    <ul role="list" style="text-align:center;">
+      <li><a href="index.html" class="mobile-link" data-page="home">Home</a></li>
+      <li><a href="projects.html" class="mobile-link" data-page="projects">Projects</a></li>
+      <li><a href="skills.html" class="mobile-link" data-page="skills">Skills</a></li>
+      <li><a href="certifications.html" class="mobile-link" data-page="certs">Certifications</a></li>
+      <li><a href="education.html" class="mobile-link" data-page="education">Education</a></li>
+      <li><a href="contact.html" class="mobile-link" data-page="contact">Contact</a></li>
+    </ul>
+    <div class="mobile-menu-bottom">
+      <a href="mailto:qaswarsofttec@gmail.com" class="mobile-social-btn" aria-label="Email">✉</a>
+      <a href="https://linkedin.com/in/qaswar-sarfraz-051111313" target="_blank" rel="noopener"
+        class="mobile-social-btn" aria-label="LinkedIn">in</a>
+      <a href="https://github.com/QaswarSarfrazcodes" target="_blank" rel="noopener" class="mobile-social-btn"
+        aria-label="GitHub">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+        </svg>
+      </a>
+      <a href="https://www.fiverr.com/s/gDerbGL" target="_blank" rel="noopener noreferrer me"
+        class="mobile-social-btn" aria-label="Qaswar on Fiverr" style="display:inline-flex;align-items:center;justify-content:center;">
+        <svg width="15" height="15" viewBox="0 0 508.02 508.02" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:15px;height:15px;">
+          <circle cx="254.01" cy="254.01" r="254.01" fill="#1dbf73"/>
+          <circle cx="315.97" cy="162.19" r="26.87" fill="#fff"/>
+          <path d="M345.87,207.66h-123V199.6c0-15.83,15.83-16.13,23.89-16.13,9.25,0,13.44.9,13.44.9v-43.6a155.21,155.21,0,0,0-19.71-1.19c-25.68,0-73.16,7.16-73.16,61.51V208h-22.4v40.31h22.4v85.1h-20.9v40.31H247.34V333.37H222.85v-85.1H290v85.1H269.13v40.31h97.65V333.37H345.87Z" transform="translate(-1.83 -0.98)" fill="#fff"/>
+        </svg>
+      </a>
+      <button id="themeToggleMobile" class="mobile-social-btn" aria-label="Toggle theme">🌙</button>
+    </div>
+  </div>
+  <main id="main">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="page-hero-mesh"></div>
+      <div class="container page-hero-content">
+        <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Projects</span></div>
+        <div class="section-eyebrow">My Work</div>
+        <h1 class="page-title">Shipped, not just <span class="accent">started</span></h1>
+        <p class="page-desc">Production-ready apps built from scratch — real tech, real problems, zero excuses.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="projects-index">
+
+          <!-- 01: AI Face Scanner – AI-Powered Facial Analysis Mobile Application -->
+          <article class="project-row reveal">
+            <div class="project-row-content">
+              <div class="card-header">
+                <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+                  <span class="project-row-num">01</span>
+                  <span class="card-badge">🏢 CSOFT Systems Internship</span>
+                  <span class="project-type">Associated with CSOFT Systems</span>
+                </div>
+                <div class="project-date">Jul 2026 – Aug 2026</div>
+              </div>
+              <h3 class="project-title">AI Face Scanner – AI-Powered Facial Analysis Mobile Application</h3>
+              <p class="project-subtitle">High-Performance Cross-Platform Flutter Mobile Application</p>
+              <p class="project-desc">
+                Developed a high-performance cross-platform Flutter mobile application during my internship at <strong>CSOFT Systems</strong>. The application delivers 6 core AI-powered facial analysis features, accurately translated from UI/UX designs crafted by designer Ashar Ali.
+              </p>
+              <ul style="margin: 0.5rem 0 1rem 1.2rem; font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.6;">
+                <li><strong>AI Analysis Features:</strong> Modules for Age &amp; Gender prediction, Facial Harmony (Beauty Score), Face Shape Classification, Dual-Face Resemblance Comparison, Symmetry Analysis, and Celebrity Look-Alike matching.</li>
+                <li><strong>UI/UX Implementation:</strong> Transformed high-fidelity Figma wireframes and design systems by Ashar Ali into fluid Flutter components.</li>
+                <li><strong>State &amp; Navigation:</strong> Reactive state management using Riverpod and declarative guard-protected routing with GoRouter.</li>
+                <li><strong>Backend &amp; Security:</strong> Supabase integration for OAuth &amp; Email Auth, Postgres DB, deep links (<code style="color:var(--clr-accent)">aifacescanner://</code>), and cloud storage.</li>
+                <li><strong>Caching &amp; Storage:</strong> Hive DB and Secure Storage for encrypted local data and offline scan history caching.</li>
+                <li><strong>Monetization:</strong> Rewarded Video Ads integration (Google Mobile Ads) and premium Pro subscription paywall.</li>
+              </ul>
+              <div class="project-tags">
+                <span class="tech">Flutter</span>
+                <span class="tech">Dart</span>
+                <span class="tech">Riverpod</span>
+                <span class="tech">GoRouter</span>
+                <span class="tech">Supabase &amp; Postgres</span>
+                <span class="tech">Hive DB &amp; Secure Storage</span>
+                <span class="tech">Google Mobile Ads</span>
+              </div>
+              <div class="project-actions">
+                <a class="project-link-btn" href="https://github.com/QaswarSarfrazcodes/Ai-Face_Scanner.git" target="_blank" rel="noopener">View GitHub Repo ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 02: Tripline — Smart AI-Powered Travel App -->
+          <article class="project-row reveal">
+            <div class="project-row-content">
+              <div class="card-header">
+                <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+                  <span class="project-row-num">02</span>
+                  <span class="card-badge">⭐ NUML &amp; Extension</span>
+                  <span class="project-type">Associated with National University of Modern Languages (NUML)</span>
+                </div>
+                <div class="project-date">May 2026 – Jun 2026</div>
+              </div>
+              <h3 class="project-title">Tripline — Smart AI-Powered Travel App</h3>
+              <p class="project-subtitle">Production-Grade Cross-Platform Travel Application Ecosystem</p>
+              <p class="project-desc">
+                Engineered using Flutter, Supabase, and Groq Llama 3.3 70B AI engine. Initially developed as a university semester project at NUML, continuously expanded and upgraded post-semester and through Coursera guided project extensions.
+              </p>
+              <ul style="margin: 0.5rem 0 1rem 1.2rem; font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.6;">
+                <li><strong>AI-Driven Itinerary Generation:</strong> Groq Llama 3.3 70B integration for multi-day trip plans and interactive 24/7 AI travel assistance.</li>
+                <li><strong>Full-Stack Architecture:</strong> Flutter (Dart SDK 3.3+), Provider state management, and Supabase (PostgreSQL with RLS policies).</li>
+                <li><strong>Trip &amp; Expense Management:</strong> Categorized spending trackers (Food, Transport, Activities) with real-time budget benchmarks.</li>
+                <li><strong>Offline &amp; Dynamic Mapping:</strong> Flutter Map with CartoDB Voyager &amp; OpenStreetMap custom tile layers.</li>
+                <li><strong>QR Code Peer Sharing:</strong> Custom QR code generation and mobile scanning for instant peer-to-peer trip importing.</li>
+                <li><strong>Community &amp; Moderation:</strong> Q&amp;A boards, hidden gem submissions, and Flutter Web Admin Dashboard for content moderation &amp; audit logging.</li>
+                <li><strong>Travel Utilities:</strong> TTS audio guides, live weather &amp; AQI updates, and passport/visa requirement auto-checkers.</li>
+              </ul>
+              <div class="project-tags">
+                <span class="tech">Flutter</span>
+                <span class="tech">Dart</span>
+                <span class="tech">Supabase &amp; Postgres RLS</span>
+                <span class="tech">Groq Llama 3.3 AI</span>
+                <span class="tech">Provider</span>
+                <span class="tech">REST APIs</span>
+                <span class="tech">Flutter Map</span>
+                <span class="tech">Web Dashboard</span>
+              </div>
+              <div class="project-actions">
+                <a class="project-link-btn" href="https://github.com/QaswarSarfrazcodes/tripline-travel-app.git" target="_blank" rel="noopener">View GitHub Repo ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 03: Smart Car Parking Management System -->
+          <article class="project-row reveal">
+            <div class="project-row-content">
+              <div class="card-header">
+                <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+                  <span class="project-row-num">03</span>
+                  <span class="card-badge">Academic (NUML)</span>
+                  <span class="project-type">Associated with National University of Modern Languages (NUML)</span>
+                </div>
+                <div class="project-date">Apr 2024 – May 2024</div>
+              </div>
+              <h3 class="project-title">Smart Car Parking Management System</h3>
+              <p class="project-subtitle">Desktop Application for Smart Car Parking Management (OOP)</p>
+              <p class="project-desc">
+                Developed a full-featured Desktop Application for Smart Car Parking Management as 2nd Semester Object-Oriented Programming (OOP) course project. Built using Java Swing and Core Java, simulating real-world parking facility operations.
+              </p>
+              <ul style="margin: 0.5rem 0 1rem 1.2rem; font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.6;">
+                <li><strong>Interactive Floor Map:</strong> Visual 12-slot parking grid (A1-A6, B1-B6) with real-time status indicators (Available vs Occupied).</li>
+                <li><strong>Automated Entry &amp; Exit Gates:</strong> Instant ticket generation (e.g. TCK-1001) with live timestamps and vehicle categorization.</li>
+                <li><strong>Tariff Billing Engine:</strong> Dynamic hourly rate calculation and itemized printable receipt generation at checkout.</li>
+                <li><strong>Operator Portal:</strong> Secure login, registration, and operator session management.</li>
+                <li><strong>Search &amp; Analytics Dashboard:</strong> Instant ticket/vehicle lookup and real-time revenue analytics.</li>
+                <li><strong>Data Persistence:</strong> Custom flat-file storage for preserving slot states, user credentials, and ticket audit logs across restarts.</li>
+              </ul>
+              <div class="project-tags">
+                <span class="tech">Object-Oriented Programming (OOP)</span>
+                <span class="tech">Java (JDK 8+)</span>
+                <span class="tech">Java Swing</span>
+                <span class="tech">Graphics2D</span>
+                <span class="tech">File I/O</span>
+              </div>
+              <div class="project-actions">
+                <a class="project-link-btn" href="https://github.com/QaswarSarfrazcodes/Car-Parking-System-OOP-java-" target="_blank" rel="noopener">View GitHub Repo ↗</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- In-Progress / Next Project -->
+        <div class="projects-wip" aria-label="Next project in progress">
+          <article class="wip-card reveal">
+            <div class="wip-head">
+              <div class="wip-icon">⚡</div>
+              <h3 class="wip-title">Next Project</h3>
+            </div>
+            <p class="wip-desc">RAG Pipeline + LangChain — AI Mobile Integration</p>
+            <div class="wip-tags">
+              <span class="tech">LangChain</span>
+              <span class="tech">RAG</span>
+              <span class="tech">Flutter</span>
+            </div>
+            <div class="wip-state">🔧 In Progress</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <img src="assets/signaturewhite.png" alt="Qaswar Sarfraz" class="logo-signature logo-signature--white"
+          style="height:48px;" />
+        <img src="assets/signatureblack.png" alt="Qaswar Sarfraz" class="logo-signature logo-signature--black"
+          style="height:48px;" />
+        <div>
+          <div>Qaswar Sarfraz</div>
+          <div class="footer-copy">© 2026 · Built with care & caffeine ☕</div>
+        </div>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="certifications.html">Certs</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="footer-socials">
+        <a href="mailto:qaswarsofttec@gmail.com" class="footer-social" aria-label="Email">✉</a>
+        <a href="https://linkedin.com/in/qaswar-sarfraz-051111313" target="_blank" rel="noopener" class="footer-social"
+          aria-label="LinkedIn">in</a>
+        <a href="https://github.com/QaswarSarfrazcodes" target="_blank" rel="noopener" class="footer-social"
+          aria-label="GitHub">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+          </svg>
+        </a>
+        <a href="https://www.fiverr.com/s/gDerbGL" target="_blank" rel="noopener noreferrer me"
+          class="footer-social" aria-label="Qaswar on Fiverr" style="display:inline-flex;align-items:center;justify-content:center;">
+          <svg width="14" height="14" viewBox="0 0 508.02 508.02" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:14px;height:14px;">
+            <circle cx="254.01" cy="254.01" r="254.01" fill="#1dbf73"/>
+            <circle cx="315.97" cy="162.19" r="26.87" fill="#fff"/>
+            <path d="M345.87,207.66h-123V199.6c0-15.83,15.83-16.13,23.89-16.13,9.25,0,13.44.9,13.44.9v-43.6a155.21,155.21,0,0,0-19.71-1.19c-25.68,0-73.16,7.16-73.16,61.51V208h-22.4v40.31h22.4v85.1h-20.9v40.31H247.34V333.37H222.85v-85.1H290v85.1H269.13v40.31h97.65V333.37H345.87Z" transform="translate(-1.83 -0.98)" fill="#fff"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+  <button id="scroll-top" aria-label="Scroll to top">↑</button>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js" defer></script>
+  <!-- AOS removed -->
+  <script src="config.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+
+</html>

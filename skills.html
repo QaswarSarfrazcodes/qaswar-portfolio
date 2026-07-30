@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qaswar Sarfraz — Flutter Developer & AI Engineer | Islamabad</title>
+  <meta name="description" content="Qaswar Sarfraz — Flutter Developer and AI Engineer based in Islamabad. Building production mobile apps with real AI integration. Available July 2026.">
+  <!-- ✏️ FONTS — Change in config.js font-display/font-body vars -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <!-- AOS removed -->
+  <!-- CSS -->
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="pages.css">
+</head>
+<body data-page="skills">
+
+<!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+<div id="progress-bar" aria-hidden="true"></div>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Qaswar Sarfraz — Home">
+      <img src="assets/signaturewhite.png" alt="" class="logo-signature logo-signature--white" aria-hidden="true" width="120" height="68" />
+      <img src="assets/signatureblack.png" alt="" class="logo-signature logo-signature--black" aria-hidden="true" width="120" height="68" />
+      <span>Qaswar<span style="color:var(--clr-accent)" aria-hidden="true">.</span></span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html"          class="nav-link" data-page="home">Home</a></li>
+      <li><a href="projects.html"       class="nav-link" data-page="projects">Projects</a></li>
+      <li><a href="skills.html"         class="nav-link" data-page="skills">Skills</a></li>
+      <li><a href="certifications.html" class="nav-link" data-page="certs">Certifications</a></li>
+      <li><a href="education.html"      class="nav-link" data-page="education">Education</a></li>
+      <li><a href="contact.html"        class="nav-link" data-page="contact">Contact</a></li>
+    </ul>
+    <button id="themeToggle" class="theme-toggle" aria-label="Switch to light mode">🌙</button>
+    <a href="contact.html" class="btn btn-sm nav-cta hire-me-btn">Hire Me →</a>
+    <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Site navigation">
+  <button class="mobile-close" id="mobileClose" aria-label="Close navigation">✕</button>
+  <ul role="list" style="text-align:center;">
+    <li><a href="index.html"          class="mobile-link" data-page="home">Home</a></li>
+    <li><a href="projects.html"       class="mobile-link" data-page="projects">Projects</a></li>
+    <li><a href="skills.html"         class="mobile-link" data-page="skills">Skills</a></li>
+    <li><a href="certifications.html" class="mobile-link" data-page="certs">Certifications</a></li>
+    <li><a href="education.html"      class="mobile-link" data-page="education">Education</a></li>
+    <li><a href="contact.html"        class="mobile-link" data-page="contact">Contact</a></li>
+  </ul>
+  <div class="mobile-menu-bottom">
+    <a href="mailto:qaswarsofttec@gmail.com" class="mobile-social-btn" aria-label="Email Qaswar">✉</a>
+    <a href="https://linkedin.com/in/qaswar-sarfraz-051111313" target="_blank" rel="noopener noreferrer me" class="mobile-social-btn" aria-label="LinkedIn">in</a>
+    <a href="https://github.com/QaswarSarfrazcodes" target="_blank" rel="noopener noreferrer me" class="mobile-social-btn" aria-label="GitHub">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+    </a>
+    <a href="https://www.fiverr.com/s/gDerbGL" target="_blank" rel="noopener noreferrer me"
+      class="mobile-social-btn" aria-label="Qaswar on Fiverr" style="display:inline-flex;align-items:center;justify-content:center;">
+      <svg width="15" height="15" viewBox="0 0 508.02 508.02" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:15px;height:15px;">
+        <circle cx="254.01" cy="254.01" r="254.01" fill="#1dbf73"/>
+        <circle cx="315.97" cy="162.19" r="26.87" fill="#fff"/>
+        <path d="M345.87,207.66h-123V199.6c0-15.83,15.83-16.13,23.89-16.13,9.25,0,13.44.9,13.44.9v-43.6a155.21,155.21,0,0,0-19.71-1.19c-25.68,0-73.16,7.16-73.16,61.51V208h-22.4v40.31h22.4v85.1h-20.9v40.31H247.34V333.37H222.85v-85.1H290v85.1H269.13v40.31h97.65V333.37H345.87Z" transform="translate(-1.83 -0.98)" fill="#fff"/>
+      </svg>
+    </a>
+    <button id="themeToggleMobile" class="mobile-social-btn" aria-label="Toggle theme">🌙</button>
+  </div>
+</div>
+
+<main id="main">
+
+<div class="page-hero">
+  <div class="page-hero-mesh" aria-hidden="true"></div>
+  <div class="container page-hero-content">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Skills</span>
+    </nav>
+    <div class="section-eyebrow">Tech Stack</div>
+    <h1 class="page-title">What I build <span class="accent">with</span></h1>
+    <p class="page-desc">Tools and technologies I use to ship production-ready software — from mobile to AI to cloud.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="skill-legend" role="note" aria-label="Skill proficiency legend">
+      <span class="skill-chip core">Core</span>
+      <span class="skill-chip familiar">Intermediate / Certified</span>
+      <span class="skill-chip">Learning</span>
+    </div>
+    <div class="skills-page-grid">
+
+      <!-- ── CURRENTLY LEARNING ── -->
+      <div class="skill-group-card reveal" style="border-color:rgba(var(--clr-accent-rgb),0.3);background:linear-gradient(135deg,rgba(var(--clr-accent-rgb),0.04),var(--clr-bg-card));">
+        <div class="skill-group-header">
+          <div class="skill-group-icon">🧠</div>
+          <div class="skill-group-name">Currently Learning</div>
+          <span class="badge badge-accent" style="margin-left:auto;">🟢 Active</span>
+        </div>
+        <p style="font-size:var(--fs-sm);color:var(--clr-text-muted);margin-bottom:var(--sp-5);line-height:1.7;">Actively learning and building with FastAPI &amp; advanced REST API integration.</p>
+        <div class="skill-chips stagger">
+          <span class="skill-chip">FastAPI</span>
+          <span class="skill-chip">Advanced REST APIs</span>
+          <span class="skill-chip">Python Backend Integration</span>
+        </div>
+      </div>
+
+      <!-- ── MOBILE DEV (CORE) ── -->
+      <div class="skill-group-card reveal">
+        <div class="skill-group-header">
+          <div class="skill-group-icon">📱</div>
+          <div class="skill-group-name">Mobile Development</div>
+          <span class="skill-group-count">Core Competency</span>
+        </div>
+        <div class="skill-chips stagger">
+          <span class="skill-chip core"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="" loading="lazy" width="16" height="16">Flutter</span>
+          <span class="skill-chip core"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="" loading="lazy" width="16" height="16">Dart</span>
+          <span class="skill-chip core">Riverpod</span>
+          <span class="skill-chip core">Provider</span>
+          <span class="skill-chip">GoRouter</span>
+          <span class="skill-chip">Hive DB &amp; Secure Storage</span>
+          <span class="skill-chip">Google Mobile Ads</span>
+        </div>
+      </div>
+
+      <!-- ── BACKEND & APIS ── -->
+      <div class="skill-group-card reveal">
+        <div class="skill-group-header">
+          <div class="skill-group-icon">⚡</div>
+          <div class="skill-group-name">Backend &amp; APIs</div>
+          <span class="skill-group-count">Backend Stack</span>
+        </div>
+        <div class="skill-chips stagger">
+          <span class="skill-chip core">REST APIs (Dio / HTTP)</span>
+          <span class="skill-chip core"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" alt="" loading="lazy" width="16" height="16">Supabase Auth &amp; DB</span>
+          <span class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="" loading="lazy" width="16" height="16">PostgreSQL</span>
+          <span class="skill-chip">FastAPI (Learning)</span>
+        </div>
+      </div>
+
+      <!-- ── AI INTEGRATION ── -->
+      <div class="skill-group-card reveal">
+        <div class="skill-group-header">
+          <div class="skill-group-icon">🤖</div>
+          <div class="skill-group-name">AI Integration</div>
+          <span class="skill-group-count">API Integrations</span>
+        </div>
+        <div class="skill-chips stagger">
+          <span class="skill-chip core">Groq AI API (Llama 3.3 70B)</span>
+          <span class="skill-chip core">Facial Analysis API Integration</span>
+          <span class="skill-chip">RESTful AI Endpoint Consumption</span>
+        </div>
+      </div>
+
+      <!-- ── LANGUAGES ── -->
+      <div class="skill-group-card reveal">
+        <div class="skill-group-header">
+          <div class="skill-group-icon">💻</div>
+          <div class="skill-group-name">Languages</div>
+          <span class="skill-group-count">3 Languages</span>
+        </div>
+        <div class="skill-chips stagger">
+          <span class="skill-chip core"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="" loading="lazy" width="16" height="16">Dart</span>
+          <span class="skill-chip familiar"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="" loading="lazy" width="16" height="16">Python (Intermediate / Certified)</span>
+          <span class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="" loading="lazy" width="16" height="16">Java (Academic OOP)</span>
+        </div>
+      </div>
+
+      <!-- ── TOOLS & CS FUNDAMENTALS ── -->
+      <div class="skill-group-card reveal">
+        <div class="skill-group-header">
+          <div class="skill-group-icon">🛠</div>
+          <div class="skill-group-name">Tools &amp; CS Fundamentals</div>
+          <span class="skill-group-count">Tools &amp; OOP</span>
+        </div>
+        <div class="skill-chips stagger">
+          <span class="skill-chip familiar"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="" loading="lazy" width="16" height="16">Git</span>
+          <span class="skill-chip familiar"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="" loading="lazy" width="16" height="16" class="github-icon">GitHub</span>
+          <span class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="" loading="lazy" width="16" height="16">VS Code</span>
+          <span class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" alt="" loading="lazy" width="16" height="16">Android Studio</span>
+          <span class="skill-chip core">Object-Oriented Programming (OOP)</span>
+          <span class="skill-chip">Data Structures &amp; Algorithms</span>
+          <span class="skill-chip">SDLC</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="container footer-inner">
+    <div class="footer-logo">
+      <img src="assets/signaturewhite.png" alt="" class="logo-signature logo-signature--white" aria-hidden="true" style="height:48px;" loading="lazy" width="120" height="48"/>
+      <img src="assets/signatureblack.png" alt="" class="logo-signature logo-signature--black" aria-hidden="true" style="height:48px;" loading="lazy" width="120" height="48"/>
+      <div>
+        <div style="font-weight:700;">Qaswar Sarfraz</div>
+        <div class="footer-copy">© 2026 · Built with care &amp; caffeine ☕</div>
+      </div>
+    </div>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="certifications.html">Certs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <nav aria-label="Social links" class="footer-socials">
+      <a href="mailto:qaswarsofttec@gmail.com" class="footer-social" aria-label="Email Qaswar">✉</a>
+      <a href="https://linkedin.com/in/qaswar-sarfraz-051111313" target="_blank" rel="noopener noreferrer me" class="footer-social" aria-label="LinkedIn">in</a>
+      <a href="https://github.com/QaswarSarfrazcodes" target="_blank" rel="noopener noreferrer me" class="footer-social" aria-label="GitHub">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+      </a>
+      <a href="https://www.fiverr.com/s/gDerbGL" target="_blank" rel="noopener noreferrer me"
+        class="footer-social" aria-label="Qaswar on Fiverr" style="display:inline-flex;align-items:center;justify-content:center;">
+        <svg width="14" height="14" viewBox="0 0 508.02 508.02" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:14px;height:14px;">
+          <circle cx="254.01" cy="254.01" r="254.01" fill="#1dbf73"/>
+          <circle cx="315.97" cy="162.19" r="26.87" fill="#fff"/>
+          <path d="M345.87,207.66h-123V199.6c0-15.83,15.83-16.13,23.89-16.13,9.25,0,13.44.9,13.44.9v-43.6a155.21,155.21,0,0,0-19.71-1.19c-25.68,0-73.16,7.16-73.16,61.51V208h-22.4v40.31h22.4v85.1h-20.9v40.31H247.34V333.37H222.85v-85.1H290v85.1H269.13v40.31h97.65V333.37H345.87Z" transform="translate(-1.83 -0.98)" fill="#fff"/>
+        </svg>
+      </a>
+    </nav>
+  </div>
+</footer>
+
+<button id="scroll-top" aria-label="Scroll to top">↑</button>
+
+<!-- Scripts -->
+<script src="config.js" defer></script>
+<script src="main.js" defer></script>
+<style>
+  [data-theme="dark"] .skill-chip img { filter: brightness(0.9) invert(0.05); }
+  [data-theme="dark"] .github-icon { filter: invert(1) brightness(0.9); }
+  [data-theme="light"] .github-icon { filter: brightness(0.2); }
+</style>
+</body>
+</html>
