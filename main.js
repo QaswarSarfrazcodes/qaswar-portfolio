@@ -418,16 +418,14 @@ function initContactForm() {
 
     try {
       if (web3key && web3key !== 'YOUR_WEB3FORMS_ACCESS_KEY') {
+        const formData = new FormData(form);
+        formData.set('access_key', web3key);
+        formData.set('subject', `Portfolio Inquiry: ${subjectSelect} from ${name}`);
+        formData.set('from_name', name);
+
         const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({
-            access_key: web3key,
-            name: name,
-            email: email,
-            subject: `Portfolio Message: ${subjectSelect} from ${name}`,
-            message: message
-          })
+          body: formData
         });
         const resData = await response.json();
         if (!resData.success) throw new Error(resData.message || 'Form submission failed');
