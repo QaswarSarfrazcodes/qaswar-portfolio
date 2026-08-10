@@ -1,4 +1,4 @@
-# Qaswar Sarfraz — Developer Portfolio
+# Qaswar Sarfraz (Developer Portfolio)
 
 Welcome to the official developer portfolio website of **Qaswar Sarfraz** — Mobile Application Developer & Software Engineering Student at NUML.
 
