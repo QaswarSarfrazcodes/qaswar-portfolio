@@ -1,0 +1,336 @@
+/* ═══════════════════════════════════════════════════════════════════
+   TOKENS — "OBSIDIAN + AURORA"
+   Dark-first design system. Near-black substrate, frosted glass
+   surfaces, electric cyan / violet aurora accents.
+   Every value in the site resolves back to this file.
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  color-scheme: dark;
+
+  /* ─────────────────────────────────────────────
+     TYPEFACES
+     ───────────────────────────────────────────── */
+  --font-display: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* ─────────────────────────────────────────────
+     FLUID TYPE SCALE
+     ───────────────────────────────────────────── */
+  --fs-3xs:  0.6875rem;                          /* 11px — micro labels    */
+  --fs-2xs:  0.75rem;                            /* 12px — mono meta       */
+  --fs-xs:   0.8125rem;                          /* 13px — chips           */
+  --fs-sm:   0.9375rem;                          /* 15px — secondary body  */
+  --fs-base: 1rem;                               /* 16px — body            */
+  --fs-md:   clamp(1.0625rem, 0.4vw + 0.97rem, 1.1875rem);
+  --fs-lg:   clamp(1.25rem,  0.7vw + 1.09rem,  1.5rem);
+  --fs-xl:   clamp(1.5rem,   1.2vw + 1.23rem,  1.9375rem);
+  --fs-2xl:  clamp(1.875rem, 2.1vw + 1.4rem,   2.625rem);
+  --fs-3xl:  clamp(2.25rem,  3.4vw + 1.5rem,   3.5rem);
+  --fs-4xl:  clamp(2.75rem,  5vw + 1.5rem,     4.75rem);
+  --fs-hero: clamp(3.25rem,  8vw + 0.5rem,     7.5rem);
+
+  --lh-tight: 1.04;
+  --lh-snug:  1.2;
+  --lh-body:  1.68;
+  --lh-loose: 1.8;
+
+  --ls-tight: -0.035em;
+  --ls-snug:  -0.02em;
+  --ls-wide:  0.08em;
+  --ls-caps:  0.16em;
+
+  /* ─────────────────────────────────────────────
+     SPACE — 4px base
+     ───────────────────────────────────────────── */
+  --sp-1: 0.25rem;  --sp-2: 0.5rem;   --sp-3: 0.75rem;
+  --sp-4: 1rem;     --sp-5: 1.25rem;  --sp-6: 1.5rem;
+  --sp-7: 1.75rem;  --sp-8: 2rem;     --sp-10: 2.5rem;
+  --sp-12: 3rem;    --sp-14: 3.5rem;  --sp-16: 4rem;
+  --sp-20: 5rem;    --sp-24: 6rem;    --sp-32: 8rem;
+  --sp-40: 10rem;
+
+  /* Section rhythm — collapses gracefully on small screens */
+  --sp-section: clamp(4.5rem, 9vw, 9rem);
+  --sp-gutter:  clamp(1.25rem, 4vw, 2.5rem);
+
+  /* ─────────────────────────────────────────────
+     RADII
+     ───────────────────────────────────────────── */
+  --r-xs:   6px;
+  --r-sm:   10px;
+  --r-md:   14px;
+  --r-lg:   20px;
+  --r-xl:   26px;
+  --r-2xl:  34px;
+  --r-3xl:  44px;
+  --r-full: 999px;
+
+  /* ─────────────────────────────────────────────
+     MOTION
+     ───────────────────────────────────────────── */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);      /* default deceleration */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.48, 0.52, 1);   /* playful overshoot    */
+  --ease-glide:  cubic-bezier(0.16, 1, 0.3, 1);       /* long, luxurious      */
+
+  --t-instant: 90ms  var(--ease-out);
+  --t-fast:    180ms var(--ease-out);
+  --t-base:    320ms var(--ease-out);
+  --t-slow:    560ms var(--ease-glide);
+  --t-slower:  900ms var(--ease-glide);
+
+  /* ─────────────────────────────────────────────
+     LAYOUT
+     ───────────────────────────────────────────── */
+  --nav-h:      72px;
+  --max-w:      1320px;
+  --max-w-wide: 1520px;
+  --max-w-text: 68ch;
+
+  /* 3D stage depth — shared so every tilt/orbit agrees */
+  --perspective: 1200px;
+  --perspective-deep: 1800px;
+
+  /* ═══════════════════════════════════════════════════════════
+     DARK THEME (default)
+     ═══════════════════════════════════════════════════════════ */
+
+  /* Substrate — near-black with a cool blue bias */
+  --bg-0: #05060A;   /* page floor          */
+  --bg-1: #080A11;   /* raised band         */
+  --bg-2: #0D1018;   /* alternate section   */
+  --bg-3: #131725;   /* sunken well         */
+  --bg-4: #1A1F30;   /* highest solid       */
+
+  /* Glass surfaces — layered translucency, low → high */
+  --glass-1:  rgba(255, 255, 255, 0.032);
+  --glass-2:  rgba(255, 255, 255, 0.055);
+  --glass-3:  rgba(255, 255, 255, 0.085);
+  --glass-4:  rgba(255, 255, 255, 0.13);
+  --glass-solid: rgba(13, 16, 24, 0.82);
+
+  /* Glass edges — the rim light is what sells the material */
+  --brd-1: rgba(255, 255, 255, 0.07);
+  --brd-2: rgba(255, 255, 255, 0.12);
+  --brd-3: rgba(255, 255, 255, 0.2);
+  --brd-accent: rgba(79, 209, 255, 0.4);
+
+  --blur-sm: 10px;
+  --blur-md: 20px;
+  --blur-lg: 32px;
+  --blur-xl: 56px;
+
+  /* Text — 4 levels of hierarchy */
+  --tx-0: #F4F7FC;   /* headings          */
+  --tx-1: #C8D0E0;   /* body              */
+  --tx-2: #8A94AB;   /* muted / captions  */
+  --tx-3: #5A6379;   /* faint / disabled  */
+  --tx-inv: #05060A; /* on accent fills   */
+
+  /* Accents */
+  --ac-1:  #4FD1FF;  /* electric cyan — primary   */
+  --ac-1-rgb: 79, 209, 255;
+  --ac-2:  #A78BFA;  /* violet — secondary        */
+  --ac-2-rgb: 167, 139, 250;
+  --ac-3:  #34E5C4;  /* mint — tertiary / success */
+  --ac-3-rgb: 52, 229, 196;
+  --ac-4:  #FF8FB1;  /* rose — rare highlight     */
+  --ac-4-rgb: 255, 143, 177;
+  --ac-warn: #FFB86B;
+
+  --ac-1-dim: rgba(79, 209, 255, 0.14);
+  --ac-2-dim: rgba(167, 139, 250, 0.14);
+  --ac-3-dim: rgba(52, 229, 196, 0.14);
+
+  /* Gradients */
+  --grad-brand:   linear-gradient(115deg, #4FD1FF 0%, #7DA8FF 42%, #A78BFA 100%);
+  --grad-brand-r: linear-gradient(115deg, #A78BFA 0%, #7DA8FF 58%, #4FD1FF 100%);
+  --grad-mint:    linear-gradient(115deg, #34E5C4 0%, #4FD1FF 100%);
+  --grad-text:    linear-gradient(96deg, #FFFFFF 0%, #CFE9FF 34%, #A78BFA 78%, #FFFFFF 100%);
+
+  /* Rim highlight for the top edge of glass panels */
+  --grad-rim: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.5) 22%,
+    rgba(79, 209, 255, 0.85) 50%,
+    rgba(167, 139, 250, 0.55) 72%,
+    transparent 100%
+  );
+
+  /* Specular sweep that crosses a card on hover */
+  --grad-sheen: linear-gradient(
+    104deg,
+    transparent 24%,
+    rgba(255, 255, 255, 0.09) 42%,
+    rgba(255, 255, 255, 0.22) 50%,
+    rgba(255, 255, 255, 0.09) 58%,
+    transparent 76%
+  );
+
+  /* Aurora blobs behind everything */
+  --aurora-1: rgba(79, 209, 255, 0.3);
+  --aurora-2: rgba(167, 139, 250, 0.26);
+  --aurora-3: rgba(52, 229, 196, 0.16);
+
+  /* Elevation — dark themes need depth from glow, not just shadow */
+  --sh-sm: 0 1px 2px rgba(0, 0, 0, 0.5),
+           0 2px 8px rgba(0, 0, 0, 0.28);
+  --sh-md: 0 4px 12px rgba(0, 0, 0, 0.42),
+           0 12px 32px rgba(0, 0, 0, 0.34);
+  --sh-lg: 0 8px 24px rgba(0, 0, 0, 0.46),
+           0 28px 64px rgba(0, 0, 0, 0.42);
+  --sh-xl: 0 16px 40px rgba(0, 0, 0, 0.5),
+           0 48px 110px rgba(0, 0, 0, 0.5);
+
+  /* Inner rim — the "lit top edge / shaded bottom" that reads as glass */
+  --sh-inset: inset 0 1px 0 rgba(255, 255, 255, 0.1),
+              inset 0 -1px 0 rgba(0, 0, 0, 0.32);
+
+  --sh-glow-1: 0 0 0 1px rgba(79, 209, 255, 0.24),
+               0 8px 28px rgba(79, 209, 255, 0.2),
+               0 0 60px rgba(79, 209, 255, 0.1);
+  --sh-glow-2: 0 0 0 1px rgba(167, 139, 250, 0.24),
+               0 8px 28px rgba(167, 139, 250, 0.2);
+
+  --sh-btn: 0 1px 0 rgba(255, 255, 255, 0.22) inset,
+            0 8px 20px rgba(79, 209, 255, 0.24),
+            0 2px 6px rgba(0, 0, 0, 0.4);
+
+  /* Named surface aliases — components reference these, not raw glass */
+  --surface-card:       var(--glass-1);
+  --surface-card-hover: var(--glass-2);
+  --surface-nav:        rgba(8, 10, 17, 0.72);
+  --surface-input:      rgba(255, 255, 255, 0.04);
+  --surface-well:       rgba(0, 0, 0, 0.24);
+
+  /* Decorative grid / scanline overlays */
+  --grid-line: rgba(255, 255, 255, 0.028);
+  --grain-opacity: 0.04;
+  --noise-blend: overlay;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LIGHT THEME — cold porcelain, not warm beige.
+   Same structure, remapped values, so no component needs
+   to know which theme is active.
+   ═══════════════════════════════════════════════════════════ */
+[data-theme='light'] {
+  color-scheme: light;
+
+  --bg-0: #F2F5FA;
+  --bg-1: #FFFFFF;
+  --bg-2: #EDF1F8;
+  --bg-3: #E3E9F3;
+  --bg-4: #FFFFFF;
+
+  --glass-1:  rgba(255, 255, 255, 0.66);
+  --glass-2:  rgba(255, 255, 255, 0.82);
+  --glass-3:  rgba(255, 255, 255, 0.92);
+  --glass-4:  rgba(255, 255, 255, 1);
+  --glass-solid: rgba(255, 255, 255, 0.9);
+
+  --brd-1: rgba(16, 32, 64, 0.09);
+  --brd-2: rgba(16, 32, 64, 0.14);
+  --brd-3: rgba(16, 32, 64, 0.22);
+  --brd-accent: rgba(0, 122, 194, 0.4);
+
+  --tx-0: #080D18;
+  --tx-1: #2B3648;
+  --tx-2: #5A667C;
+  --tx-3: #8E99AC;
+  --tx-inv: #FFFFFF;
+
+  /* Darkened accents so they hold contrast on white */
+  --ac-1: #0077C2;
+  --ac-1-rgb: 0, 119, 194;
+  --ac-2: #6D3BEA;
+  --ac-2-rgb: 109, 59, 234;
+  --ac-3: #0A8F76;
+  --ac-3-rgb: 10, 143, 118;
+  --ac-4: #D6336C;
+  --ac-4-rgb: 214, 51, 108;
+  --ac-warn: #B26A00;
+
+  --ac-1-dim: rgba(0, 119, 194, 0.1);
+  --ac-2-dim: rgba(109, 59, 234, 0.1);
+  --ac-3-dim: rgba(10, 143, 118, 0.1);
+
+  --grad-brand:   linear-gradient(115deg, #0077C2 0%, #3E63DD 45%, #6D3BEA 100%);
+  --grad-brand-r: linear-gradient(115deg, #6D3BEA 0%, #3E63DD 55%, #0077C2 100%);
+  --grad-mint:    linear-gradient(115deg, #0A8F76 0%, #0077C2 100%);
+  --grad-text:    linear-gradient(96deg, #080D18 0%, #0077C2 40%, #6D3BEA 76%, #080D18 100%);
+
+  --grad-rim: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.9) 22%,
+    rgba(0, 119, 194, 0.6) 50%,
+    rgba(109, 59, 234, 0.4) 72%,
+    transparent 100%
+  );
+
+  --grad-sheen: linear-gradient(
+    104deg,
+    transparent 24%,
+    rgba(255, 255, 255, 0.4) 42%,
+    rgba(255, 255, 255, 0.75) 50%,
+    rgba(255, 255, 255, 0.4) 58%,
+    transparent 76%
+  );
+
+  --aurora-1: rgba(0, 119, 194, 0.16);
+  --aurora-2: rgba(109, 59, 234, 0.14);
+  --aurora-3: rgba(10, 143, 118, 0.1);
+
+  --sh-sm: 0 1px 2px rgba(16, 32, 64, 0.06),
+           0 2px 8px rgba(16, 32, 64, 0.05);
+  --sh-md: 0 4px 12px rgba(16, 32, 64, 0.07),
+           0 12px 32px rgba(16, 32, 64, 0.07);
+  --sh-lg: 0 8px 24px rgba(16, 32, 64, 0.09),
+           0 28px 64px rgba(16, 32, 64, 0.1);
+  --sh-xl: 0 16px 40px rgba(16, 32, 64, 0.1),
+           0 48px 110px rgba(16, 32, 64, 0.12);
+
+  --sh-inset: inset 0 1px 0 rgba(255, 255, 255, 0.9),
+              inset 0 -1px 0 rgba(16, 32, 64, 0.06);
+
+  --sh-glow-1: 0 0 0 1px rgba(0, 119, 194, 0.22),
+               0 8px 28px rgba(0, 119, 194, 0.14),
+               0 0 60px rgba(0, 119, 194, 0.06);
+  --sh-glow-2: 0 0 0 1px rgba(109, 59, 234, 0.22),
+               0 8px 28px rgba(109, 59, 234, 0.14);
+
+  --sh-btn: 0 1px 0 rgba(255, 255, 255, 0.4) inset,
+            0 8px 20px rgba(0, 119, 194, 0.24),
+            0 2px 6px rgba(16, 32, 64, 0.14);
+
+  --surface-nav:   rgba(255, 255, 255, 0.76);
+  --surface-input: rgba(255, 255, 255, 0.7);
+  --surface-well:  rgba(16, 32, 64, 0.035);
+
+  --grid-line: rgba(16, 32, 64, 0.035);
+  --grain-opacity: 0.022;
+  --noise-blend: multiply;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MOTION PREFERENCE
+   A hard global kill-switch would break scroll-reveal (elements
+   animate from opacity:0 and would never appear), so fx.css
+   handles reduced motion by making reveals instant instead.
+   Here we only neutralise decorative, infinite animation.
+   ═══════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --t-instant: 1ms linear;
+    --t-fast:    1ms linear;
+    --t-base:    1ms linear;
+    --t-slow:    1ms linear;
+    --t-slower:  1ms linear;
+  }
+
+  html { scroll-behavior: auto !important; }
+}

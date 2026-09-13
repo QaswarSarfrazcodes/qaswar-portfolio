@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Qaswar Sarfraz | Flutter &amp; AI Mobile Applications</title>
+  <meta name="description" content="Production Flutter apps and AI systems built by Qaswar Sarfraz — the Tripline AI travel platform, MentorLync expert-consultation app, a Java OOP parking management system, and more.">
+  <meta name="author" content="Qaswar Sarfraz">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://qaswarsarfraz.vercel.app/projects.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://qaswarsarfraz.vercel.app/projects.html">
+  <meta property="og:title" content="Projects — Qaswar Sarfraz | Flutter &amp; AI Mobile Applications">
+  <meta property="og:description" content="Explore production mobile applications shipped by Qaswar Sarfraz, including the Tripline AI travel platform.">
+  <meta property="og:image" content="https://qaswarsarfraz.vercel.app/assets/og-image.png">
+  <meta property="og:site_name" content="Qaswar Sarfraz Portfolio">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Projects — Qaswar Sarfraz">
+  <meta name="twitter:description" content="Production Flutter applications, AI integrations and systems architecture.">
+  <meta name="twitter:image" content="https://qaswarsarfraz.vercel.app/assets/og-image.png">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#05060A">
+
+  <script>
+    (function () {
+      try {
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('qs-theme') || 'dark');
+      } catch (e) { /* private mode — keep the default */ }
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/fx.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Projects — Qaswar Sarfraz",
+    "description": "Featured Flutter and AI projects built and shipped by Qaswar Sarfraz.",
+    "url": "https://qaswarsarfraz.vercel.app/projects.html"
+  }
+  </script>
+</head>
+
+<body data-page="projects">
+
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="aurora-grid" aria-hidden="true"></div>
+  <canvas id="dust" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="curtain" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <div id="progress" aria-hidden="true"></div>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <nav id="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Qaswar Sarfraz — home">
+        <img src="assets/signatureblack.png" alt="" class="nav-sig" width="110" height="52" aria-hidden="true">
+        <span class="nav-name">Qaswar<span class="nav-dot">.</span></span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="index.html"          class="nav-link" data-page="home">Home</a></li>
+        <li><a href="experience.html"     class="nav-link" data-page="experience">Experience</a></li>
+        <li><a href="projects.html"       class="nav-link" data-page="projects">Projects</a></li>
+        <li><a href="skills.html"         class="nav-link" data-page="skills">Skills</a></li>
+        <li><a href="certifications.html" class="nav-link" data-page="certs">Certifications</a></li>
+        <li><a href="education.html"      class="nav-link" data-page="education">Education</a></li>
+        <li><a href="contact.html"        class="nav-link" data-page="contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="nav-btn" data-theme-toggle type="button" aria-label="Switch theme">
+          <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          <svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+
+        <button class="nav-btn" data-sound-toggle type="button" aria-label="Enable interface sound">
+          <svg class="ico-audio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M19.1 4.9a10 10 0 0 1 0 14.2M15.5 8.5a5 5 0 0 1 0 7"/></svg>
+          <svg class="ico-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="m22 9-6 6M16 9l6 6"/></svg>
+        </button>
+
+        <a href="contact.html" class="btn btn-sm btn-primary nav-cta" data-magnetic="0.2">Hire Me <span class="btn-arrow">→</span></a>
+
+        <button class="burger" id="burger" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="m-menu">
+          <i></i><i></i><i></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="m-menu" id="m-menu" role="dialog" aria-modal="true" aria-label="Site navigation">
+    <ul class="m-list" role="list">
+      <li><a href="index.html"          class="m-link" data-page="home"       style="--i:0"><span class="m-num">01</span> Home</a></li>
+      <li><a href="experience.html"     class="m-link" data-page="experience" style="--i:1"><span class="m-num">02</span> Experience</a></li>
+      <li><a href="projects.html"       class="m-link" data-page="projects"   style="--i:2"><span class="m-num">03</span> Projects</a></li>
+      <li><a href="skills.html"         class="m-link" data-page="skills"     style="--i:3"><span class="m-num">04</span> Skills</a></li>
+      <li><a href="certifications.html" class="m-link" data-page="certs"      style="--i:4"><span class="m-num">05</span> Certifications</a></li>
+      <li><a href="education.html"      class="m-link" data-page="education"  style="--i:5"><span class="m-num">06</span> Education</a></li>
+      <li><a href="contact.html"        class="m-link" data-page="contact"    style="--i:6"><span class="m-num">07</span> Contact</a></li>
+    </ul>
+
+    <div class="m-foot">
+      <a href="contact.html" class="btn btn-primary btn-full">Start a conversation <span class="btn-arrow">→</span></a>
+      <div class="m-socials">
+        <a href="mailto:qaswarsofttec@gmail.com" class="m-social" aria-label="Email Qaswar">
+          <svg class="ico-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/qaswar-sarfraz-051111313" target="_blank" rel="noopener noreferrer me" class="m-social" aria-label="Qaswar on LinkedIn">
+          <svg class="ico-sm" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13Zm1.78 13.02H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+        </a>
+        <a href="https://github.com/QaswarSarfrazcodes" target="_blank" rel="noopener noreferrer me" class="m-social" aria-label="Qaswar on GitHub">
+          <svg class="ico-sm" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.38-1.34-1.75-1.34-1.75-1.08-.75.09-.73.09-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.7.8.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ══════════ PAGE HERO ══════════ -->
+    <div class="page-hero">
+      <div class="container">
+        <div class="page-hero-inner">
+          <nav class="breadcrumb" aria-label="Breadcrumb" data-reveal="up">
+            <a href="index.html">Home</a><span class="sep">/</span><span aria-current="page">Projects</span>
+          </nav>
+
+          <div class="eyebrow" data-reveal="up" data-reveal-delay="60">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 3 7l9 5 9-5-9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg>
+            Featured engineering
+          </div>
+
+          <h1 class="page-title" data-split>Built to work,<br>not to <span class="accent">demo</span></h1>
+
+          <p class="page-desc" data-reveal="up" data-reveal-delay="180">
+            Production Flutter architectures, sub-second AI inference pipelines and
+            systems written from first principles. Each one below links to its
+            source — the previews are schematic, the code is real.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="proj-index">
+
+          <!-- ─────────── 01 · TRIPLINE ─────────── -->
+          <article class="proj-row" data-reveal="up">
+            <div class="proj-visual" aria-hidden="true">
+              <div class="device">
+                <span class="device-notch"></span>
+                <div class="device-screen">
+                  <div class="device-row device-row--head"></div>
+                  <div class="device-map">
+                    <span class="device-pin"></span>
+                  </div>
+                  <div class="device-row device-row--bar"></div>
+                  <div class="device-row device-row--bar"></div>
+                  <div class="device-dock"><i></i><i></i><i></i><i></i></div>
+                </div>
+              </div>
+              <span class="device-orbit-chip device-orbit-chip--a"><img src="assets/icons/tech/flutter.svg" alt=""></span>
+              <span class="device-orbit-chip device-orbit-chip--b"><img src="assets/icons/tech/supabase.svg" alt=""></span>
+              <span class="device-orbit-chip device-orbit-chip--c"><img src="assets/icons/tech/openstreetmap.svg" alt=""></span>
+            </div>
+
+            <div class="proj-detail">
+              <div class="proj-meta-row">
+                <span class="num-badge">01</span>
+                <span class="pill pill--accent">✦ Flagship mobile app</span>
+                <span class="pill pill--mint">2026 · shipped</span>
+              </div>
+
+              <h2 class="proj-row-title">Tripline — AI travel companion</h2>
+              <div class="proj-row-sub">Cross-platform mobile app · Flutter Web admin console</div>
+
+              <p class="proj-row-desc">
+                An end-to-end travel platform that generates bespoke multi-day
+                itineraries with Groq Llama 3.3 70B, tracks multi-currency expenses
+                and renders interactive OpenStreetMap routes at 60fps. Designed,
+                built and shipped solo.
+              </p>
+
+              <div class="feat-list">
+                <div class="feat-row">
+                  <span class="feat-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  <span><strong>Sub-second AI itinerary engine:</strong> Groq Llama 3.3 70B produces day-by-day schedules under a strict JSON contract, validated before rendering.</span>
+                </div>
+                <div class="feat-row">
+                  <span class="feat-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  <span><strong>Supabase auth &amp; Postgres:</strong> multi-provider sign-in with row-level security policies, so a user can only ever read their own trips.</span>
+                </div>
+                <div class="feat-row">
+                  <span class="feat-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  <span><strong>Interactive map discovery:</strong> custom OpenStreetMap styling with marker clustering and location caching.</span>
+                </div>
+                <div class="feat-row">
+                  <span class="feat-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  <span><strong>Multi-currency budget tracker:</strong> live expense auditing with a category breakdown and an offline cache.</span>
+                </div>
+                <div class="feat-row">
+                  <span class="feat-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  <span><strong>QR trip sharing:</strong> peer-to-peer plan sharing for collaborating travellers.</span>
+                </div>
+                <div class="feat-row">
+                  <span class="feat-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  <span><strong>Flutter Web admin console:</strong> moderation panel for reported content and system health checks.</span>
+                </div>
+              </div>
+
+              <div class="chip-row">
+                <span class="chip"><img src="assets/icons/tech/flutter.svg" alt="" loading="lazy">Flutter</span>
+                <span class="chip"><img src="assets/icons/tech/dart.svg" alt="" loading="lazy">Dart</span>
+                <span class="chip">Groq Llama 3.3 70B</span>
+                <span class="chip"><img src="assets/icons/tech/supabase.svg" alt="" loading="lazy">Supabase</span>
+                <span class="chip"><img src="assets/icons/tech/postgresql.svg" alt="" loading="lazy">Postgres RLS</span>
+                <span class="chip">Riverpod</span>
+                <span class="chip"><img src="assets/icons/tech/openstreetmap.svg" alt="" loading="lazy">OpenStreetMap</span>
+                <span class="chip">Flutter Web</span>
+              </div>
+
+              <div class="btn-row">
+                <a href="https://github.com/QaswarSarfrazcodes/tripline-travel-app" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-magnetic="0.2">View on GitHub ↗</a>
+                <a href="skills.html" class="btn btn-outline">See the pipeline <span class="btn-arrow">→</span></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ─────────── 02 · SMART CAR PARKING ─────────── -->
+          <article class="proj-row" data-reveal="up">
+            <div class="proj-visual" aria-hidden="true">
+              <div class="window">
+                <div class="window-bar">
+                  <i></i><i></i><i></i>
+                  <span class="window-title">ParkingManager.java</span>
+                </div>
+                <div class="slot-grid">
+                  <span class="slot slot--taken"></span>
+                  <span class="slot slot--free"></span>
+                  <span class="slot slot--free"></span>
+                  <span class="slot slot--taken"></span>
+                  <span class="slot slot--free"></span>
+                  <span class="slot slot--taken"></span>
+                  <span class="slot slot--free"></span>
+                  <span class="slot slot--taken"></span>
+                  <span class="slot slot--free"></span>
+                  <span class="slot slot--free"></span>
+                  <span class="slot slot--taken"></span>
+                  <span class="slot slot--free"></span>
+                  <span class="slot slot--free"></span>
+                  <span class="slot slot--taken"></span>
+                  <span class="slot slot--free"></span>
+                  <span class="slot slot--free"></span>
+                  <span class="slot slot--taken"></span>
+                  <span class="slot slot--free"></span>
+                </div>
+              </div>
+              <span class="device-orbit-chip device-orbit-chip--a"><img src="assets/icons/tech/openjdk.svg" alt=""></span>
+            </div>
+
+            <div class="proj-detail">
+              <div class="proj-meta-row">
+                <span class="num-badge">02</span>
+                <span class="pill pill--violet">✦ University capstone</span>
+                <span class="pill">2024 · completed</span>
+              </div>
+
+              <h2 class="proj-row-title">Smart Car Parking System</h2>
+              <div class="proj-row-sub">Java desktop application · NUML Islamabad</div>
+
+              <p class="proj-row-desc">
+                Desktop management software that automates vehicle entry, slot
+                tracking and receipt generation across multiple floors. This is the
+                project where object-oriented design stopped being theory.
+              </p>
+
+              <div class="feat-list">
+                <div class="feat-row">
+                  <span class="feat-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  <span><strong>Live parking grid:</strong> real-time visual slot availability across floors.</span>
+                </div>
+                <div class="feat-row">
+                  <span class="feat-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  <span><strong>Automated entry &amp; exit:</strong> sequential ticket generation with vehicle categorisation.</span>
+                </div>
+                <div class="feat-row">
+                  <span class="feat-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  <span><strong>Billing engine:</strong> hourly tariff calculation with itemised receipt printing.</span>
+                </div>
+                <div class="feat-row">
+                  <span class="feat-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  <span><strong>Persistence:</strong> file-backed storage that survives a restart with no data loss.</span>
+                </div>
+              </div>
+
+              <div class="chip-row">
+                <span class="chip"><img src="assets/icons/tech/openjdk.svg" alt="" loading="lazy">Java</span>
+                <span class="chip">Swing GUI</span>
+                <span class="chip">OOP patterns</span>
+                <span class="chip">File I/O</span>
+              </div>
+
+              <div class="btn-row">
+                <a href="https://github.com/QaswarSarfrazcodes/Car-Parking-System-OOP-java-" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-magnetic="0.2">View on GitHub ↗</a>
+                <a href="education.html" class="btn btn-outline">Academic context <span class="btn-arrow">→</span></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ─────────── 03 · MENTORLYNC ─────────── -->
+          <article class="proj-row" data-reveal="up">
+            <div class="proj-visual" aria-hidden="true">
+              <div class="device">
+                <span class="device-notch"></span>
+                <div class="device-screen" style="overflow:hidden;padding:0;display:flex;align-items:stretch;">
+                  <img
+                    src="assets/mentorLync_project_splash_screen.png"
+                    alt="MentorLync splash screen"
+                    style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:inherit;"
+                    loading="lazy"
+                  >
+                </div>
+              </div>
+              <span class="device-orbit-chip device-orbit-chip--a">
+                <img src="assets/Mentorlync_logo.png" alt="MentorLync logo" style="border-radius:50%;background:#fff;padding:2px;">
+              </span>
+              <span class="device-orbit-chip device-orbit-chip--b"><img src="assets/icons/tech/flutter.svg" alt=""></span>
+              <span class="device-orbit-chip device-orbit-chip--c"><img src="assets/icons/tech/supabase.svg" alt=""></span>
+            </div>
+
+            <div class="proj-detail">
+              <div class="proj-meta-row">
+                <span class="num-badge">03</span>
+                <span class="pill" style="--pill-bg:color-mix(in srgb,var(--clr-teal,#0d9488) 15%,transparent);--pill-border:color-mix(in srgb,var(--clr-teal,#0d9488) 40%,transparent);color:#2dd4bf;">✦ Independent project</span>
+                <span class="pill">2026 · in development</span>
+              </div>
+
+              <h2 class="proj-row-title">MentorLync — Expert Consultation &amp; AI Mentorship</h2>
+              <div class="proj-row-sub">Flutter mobile app (Android &amp; iOS) · Personal learning project</div>
+
+              <p class="proj-row-desc">
+                A full-stack mobile platform where Seekers book paid chat, audio, and video sessions with
+                verified Experts — backed by real-time Supabase infrastructure, ZegoCloud calling, and a
+                Gemini-powered AI Assistant. Built entirely solo to go deep on production-grade Flutter
+                architecture, Riverpod state management, and backend integration.
+              </p>
+
+              <div class="feat-list">
+                <div class="feat-row">
+                  <span class="feat-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  <span><strong>Dual-role architecture:</strong> Seekers browse and book; Experts manage availability, earnings, and requests — all in a single app with role-gated navigation.</span>
+                </div>
+                <div class="feat-row">
+                  <span class="feat-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  <span><strong>Real-time chat with rich media:</strong> text, images, voice notes, and file attachments over Supabase Realtime WebSocket — no user contact details ever exposed.</span>
+                </div>
+                <div class="feat-row">
+                  <span class="feat-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  <span><strong>Background-safe audio/video calling:</strong> ZegoCloud SDK with FCM high-priority push delivers a native incoming-call UI even when the app is killed (CallKit / ConnectionService).</span>
+                </div>
+                <div class="feat-row">
+                  <span class="feat-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  <span><strong>Gemini-powered AI Assistant:</strong> free daily quota for AI mentorship queries — visually distinct from human-expert chat and upgradeable to unlimited via Pro subscription.</span>
+                </div>
+                <div class="feat-row">
+                  <span class="feat-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  <span><strong>Session-credit economy:</strong> purchase credit packs or subscribe to Pro for discounted pricing — all deduction logic lives in Supabase Edge Functions so the client never enforces business rules.</span>
+                </div>
+                <div class="feat-row">
+                  <span class="feat-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                  <span><strong>Safety layer:</strong> user reporting with evidence attachments, independent blocking, and Supabase RLS ensuring users only ever read their own records or those of an active-session counterparty.</span>
+                </div>
+              </div>
+
+              <div class="chip-row">
+                <span class="chip"><img src="assets/icons/tech/flutter.svg" alt="" loading="lazy">Flutter</span>
+                <span class="chip"><img src="assets/icons/tech/dart.svg" alt="" loading="lazy">Dart</span>
+                <span class="chip">Riverpod</span>
+                <span class="chip">GoRouter</span>
+                <span class="chip"><img src="assets/icons/tech/supabase.svg" alt="" loading="lazy">Supabase</span>
+                <span class="chip"><img src="assets/icons/tech/postgresql.svg" alt="" loading="lazy">Postgres RLS</span>
+                <span class="chip">ZegoCloud</span>
+                <span class="chip">Gemini AI</span>
+                <span class="chip">FCM</span>
+              </div>
+
+              <div class="btn-row">
+                <a href="https://github.com/QaswarSarfrazcodes/MentorLync" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-magnetic="0.2">View on GitHub ↗</a>
+                <a href="education.html" class="btn btn-outline">Academic context <span class="btn-arrow">→</span></a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ─────────── IN PROGRESS ─────────── -->
+        <div class="mt-12">
+          <div class="sect-head" data-reveal="up">
+            <div class="eyebrow">On the bench</div>
+            <h2 class="sect-title">Currently building</h2>
+          </div>
+
+          <div class="wip" data-reveal="up">
+            <div class="row gap-4 wrap">
+              <span class="icon-tile icon-tile--lg icon-tile--violet" aria-hidden="true">
+                <svg class="ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><polyline points="14 2 14 8 20 8"/><path d="M9 13h6M9 17h4"/></svg>
+              </span>
+              <div>
+                <h3 class="proj-title">Document AI Assistant</h3>
+                <div class="proj-row-sub">Mobile-first document chat with retrieval</div>
+              </div>
+              <span class="pill pill--violet" style="margin-left:auto">
+                <span class="status-dot" aria-hidden="true"><i></i></span>
+                In development
+              </span>
+            </div>
+
+            <p class="proj-desc">
+              A Flutter client over a Python service that parses documents, embeds
+              them, and answers questions against the retrieved context. The honest
+              status: the retrieval layer works, the mobile UX is still being built,
+              and there is nothing to demo yet.
+            </p>
+
+            <div class="chip-row">
+              <span class="chip"><img src="assets/icons/tech/flutter.svg" alt="" loading="lazy">Flutter</span>
+              <span class="chip"><img src="assets/icons/tech/fastapi.svg" alt="" loading="lazy">FastAPI</span>
+              <span class="chip"><img src="assets/icons/tech/langchain.svg" alt="" loading="lazy">RAG</span>
+              <span class="chip"><img src="assets/icons/tech/huggingface.svg" alt="" loading="lazy">Embeddings</span>
+              <span class="chip"><img src="assets/icons/tech/python.svg" alt="" loading="lazy">Python</span>
+            </div>
+
+            <div class="btn-row">
+              <a href="contact.html" class="btn btn-sm btn-outline">Ask about progress <span class="btn-arrow">→</span></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════ CTA ══════════ -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="cap-band" data-reveal="up">
+          <div>
+            <h2 class="cap-band-title">Have something you need built?</h2>
+            <p class="cap-band-desc">
+              Full app builds, Supabase backends, AI integration or performance
+              work on an existing Flutter codebase.
+            </p>
+          </div>
+          <div class="btn-row">
+            <a href="contact.html" class="btn btn-primary" data-magnetic="0.2">Start a project <span class="btn-arrow">→</span></a>
+            <a href="skills.html" class="btn btn-outline">Review the stack</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <img src="assets/signatureblack.png" alt="Qaswar Sarfraz" class="footer-sig" width="100" height="42" loading="lazy">
+          <p class="footer-tagline">
+            Mobile application &amp; AI integration engineer. Building Flutter products
+            that stay fast as they grow.
+          </p>
+          <div class="status-pill">
+            <span class="status-dot" aria-hidden="true"><i></i></span>
+            Open to global roles
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Explore</div>
+          <nav class="footer-links" aria-label="Footer navigation">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="experience.html" class="footer-link">Experience</a>
+            <a href="projects.html" class="footer-link">Projects</a>
+            <a href="skills.html" class="footer-link">Skills</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer-col-title">More</div>
+          <nav class="footer-links" aria-label="Footer navigation continued">
+            <a href="certifications.html" class="footer-link">Certifications</a>
+            <a href="education.html" class="footer-link">Education</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+            <a href="resume/Qaswar_Sarfraz_Resume.pdf" download class="footer-link">
+              Résumé
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+            </a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Get in touch</div>
+          <nav class="footer-links" aria-label="Contact links">
+            <a href="mailto:qaswarsofttec@gmail.com" class="footer-link">qaswarsofttec@gmail.com</a>
+            <a href="https://linkedin.com/in/qaswar-sarfraz-051111313" target="_blank" rel="noopener noreferrer me" class="footer-link">LinkedIn ↗</a>
+            <a href="https://github.com/QaswarSarfrazcodes" target="_blank" rel="noopener noreferrer me" class="footer-link">GitHub ↗</a>
+            <a href="https://www.fiverr.com/s/gDerbGL" target="_blank" rel="noopener noreferrer me" class="footer-link">Fiverr ↗</a>
+          </nav>
+        </div>
+
+      </div>
+
+      <div class="footer-bar">
+        <div class="footer-copy">© 2026 Qaswar Sarfraz · Islamabad, Pakistan</div>
+        <div class="footer-socials">
+          <a href="mailto:qaswarsofttec@gmail.com" class="footer-social" aria-label="Email Qaswar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/qaswar-sarfraz-051111313" target="_blank" rel="noopener noreferrer me" class="footer-social" aria-label="Qaswar on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13Zm1.78 13.02H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+          </a>
+          <a href="https://github.com/QaswarSarfrazcodes" target="_blank" rel="noopener noreferrer me" class="footer-social" aria-label="Qaswar on GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.38-1.34-1.75-1.34-1.75-1.08-.75.09-.73.09-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.7.8.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="to-top" type="button" aria-label="Scroll back to top">
+    <svg class="ico-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+  </button>
+
+  <div class="mobile-cta">
+    <a href="contact.html" class="btn btn-primary btn-full">Hire Me <span class="btn-arrow">→</span></a>
+  </div>
+
+  <script src="js/config.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+
+</html>

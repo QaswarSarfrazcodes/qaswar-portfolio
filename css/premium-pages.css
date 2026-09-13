@@ -1,0 +1,1343 @@
+/* ═══════════════════════════════════════════════════════════════════
+   PREMIUM PAGES — the 3D layer for certifications, education, contact
+
+   Additive to pages.css. Everything resolves back to tokens.css, so
+   both themes and reduced-motion come for free. Loaded last on those
+   three pages only.
+
+   Structure:
+     1. Borrowed utilities  — classes these pages need that live in
+                              home.css / skills.css (not loaded here)
+     2. 3D primitives       — stages, depth plates, holographic foil
+     3. Hero ornaments      — the floating object beside each title
+     4. Certifications      — seal, podium, grade ladder, foil cards
+     5. Education           — degree emblem, semester rail
+     6. Contact             — availability radar, channels, services
+     7. Reduced motion      — one consolidated block
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════
+   1 · BORROWED UTILITIES
+   .about-para lives in home.css and .cap-band in
+   skills.css; neither is loaded on these pages, so
+   they are restated here rather than pulling in two
+   more stylesheets for four rules.
+   ═══════════════════════════════════════════════ */
+.about-para {
+  font-size: var(--fs-md);
+  line-height: var(--lh-loose);
+  color: var(--tx-1);
+  margin: 0;
+}
+
+.about-para strong { color: var(--tx-0); font-weight: 600; }
+
+.cap-band {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: center;
+  padding: clamp(1.75rem, 3.5vw, 2.75rem);
+  border-radius: var(--r-2xl);
+  background: var(--surface-card);
+  border: 1px solid var(--brd-1);
+  backdrop-filter: blur(var(--blur-lg));
+  -webkit-backdrop-filter: blur(var(--blur-lg));
+  box-shadow: var(--sh-lg), var(--sh-inset);
+  position: relative;
+  overflow: hidden;
+}
+
+.cap-band::before {
+  content: '';
+  position: absolute;
+  inset-inline: 14%;
+  top: 0;
+  height: 1px;
+  background: var(--grad-rim);
+  opacity: 0.6;
+}
+
+.cap-band-title {
+  font-size: var(--fs-xl);
+  margin: 0 0 var(--sp-3);
+  letter-spacing: var(--ls-snug);
+}
+
+.cap-band-desc {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--tx-2);
+  max-width: 54ch;
+  margin: 0;
+}
+
+@media (max-width: 780px) {
+  .cap-band { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════
+   2 · 3D PRIMITIVES
+   ═══════════════════════════════════════════════ */
+
+/* A shared perspective camera. Children keep their own
+   transform-style so depth survives nesting. */
+.stage {
+  perspective: var(--perspective);
+  transform-style: preserve-3d;
+}
+
+.stage--deep { perspective: var(--perspective-deep); }
+
+/* ── HOLOGRAPHIC FOIL ──
+   The thing that makes a certificate look like a certificate:
+   a rainbow sheet that shifts as the card turns. Two layers —
+   a slow conic rainbow at low opacity, and a specular band
+   that sweeps on hover. --hue is registered so the conic
+   gradient can actually interpolate instead of stepping. ── */
+@property --hue {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.foil {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0.32;
+  mix-blend-mode: color-dodge;
+  background: conic-gradient(
+    from var(--hue, 0deg) at calc(var(--mx, 0.5) * 100%) calc(var(--my, 0.5) * 100%),
+    rgba(var(--ac-1-rgb), 0.22),
+    rgba(var(--ac-2-rgb), 0.20),
+    rgba(var(--ac-3-rgb), 0.18),
+    rgba(var(--ac-4-rgb), 0.16),
+    rgba(var(--ac-1-rgb), 0.22)
+  );
+  animation: foil-turn 9s linear infinite;
+  transition: opacity var(--t-base);
+}
+
+[data-tilt]:hover > .foil { opacity: 0.72; }
+
+@keyframes foil-turn { to { --hue: 360deg; } }
+
+[data-theme='light'] .foil {
+  mix-blend-mode: multiply;
+  opacity: 0.14;
+}
+
+[data-theme='light'] [data-tilt]:hover > .foil { opacity: 0.3; }
+
+/* ── ENGRAVED RULE ──
+   A hairline that reads as milled into the surface rather
+   than drawn on top: one dark line, one light line. ── */
+.engrave {
+  height: 2px;
+  border-radius: var(--r-full);
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0 1px, rgba(255, 255, 255, 0.09) 1px 2px);
+}
+
+[data-theme='light'] .engrave {
+  background:
+    linear-gradient(180deg, rgba(16, 32, 64, 0.1) 0 1px, rgba(255, 255, 255, 0.9) 1px 2px);
+}
+
+/* ── MICRO LABEL ── */
+.micro {
+  font-family: var(--font-mono);
+  font-size: var(--fs-3xs);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--tx-3);
+}
+
+/* ═══════════════════════════════════════════════
+   3 · HERO ORNAMENT
+   Every one of these pages puts a rotating 3D object
+   beside its title. The shell is shared; each page
+   drops its own content into .orn-core.
+   ═══════════════════════════════════════════════ */
+.hero-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+@media (max-width: 940px) {
+  .hero-split { grid-template-columns: 1fr; }
+  .hero-split .orn { margin-inline: auto; }
+}
+
+.orn {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: clamp(210px, 26vw, 290px);
+  aspect-ratio: 1;
+  perspective: var(--perspective-deep);
+  transform-style: preserve-3d;
+  flex-shrink: 0;
+}
+
+/* Three rings on different axes. Together they read as a
+   sphere of orbits without needing a single 3D model. */
+.orn-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--brd-2);
+  transform-style: preserve-3d;
+}
+
+.orn-ring--a {
+  border-color: rgba(var(--ac-1-rgb), 0.4);
+  animation: orn-a 18s linear infinite;
+}
+
+.orn-ring--b {
+  inset: 11%;
+  border-color: rgba(var(--ac-2-rgb), 0.34);
+  border-style: dashed;
+  animation: orn-b 24s linear infinite reverse;
+}
+
+.orn-ring--c {
+  inset: 22%;
+  border-color: rgba(var(--ac-3-rgb), 0.3);
+  animation: orn-c 14s linear infinite;
+}
+
+@keyframes orn-a {
+  from { transform: rotateX(72deg) rotateZ(0deg); }
+  to   { transform: rotateX(72deg) rotateZ(360deg); }
+}
+
+@keyframes orn-b {
+  from { transform: rotateY(68deg) rotateZ(0deg); }
+  to   { transform: rotateY(68deg) rotateZ(360deg); }
+}
+
+@keyframes orn-c {
+  from { transform: rotateX(28deg) rotateY(34deg) rotateZ(0deg); }
+  to   { transform: rotateX(28deg) rotateY(34deg) rotateZ(360deg); }
+}
+
+/* Aurora bloom trapped inside the rings */
+.orn::before {
+  content: '';
+  position: absolute;
+  inset: 14%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 34% 30%,
+    rgba(var(--ac-1-rgb), 0.34),
+    rgba(var(--ac-2-rgb), 0.16) 52%,
+    transparent 74%
+  );
+  filter: blur(20px);
+  animation: pulse-soft 6s var(--ease-in-out) infinite;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.7; transform: scale(0.95); }
+  50%      { opacity: 1;   transform: scale(1.06); }
+}
+
+/* The glass puck at the centre */
+.orn-core {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: 46%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--glass-solid);
+  border: 1px solid var(--brd-2);
+  backdrop-filter: blur(var(--blur-lg)) saturate(150%);
+  -webkit-backdrop-filter: blur(var(--blur-lg)) saturate(150%);
+  box-shadow:
+    var(--sh-lg),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 0 44px rgba(var(--ac-1-rgb), 0.22);
+  transform: translateZ(58px);
+  transform-style: preserve-3d;
+}
+
+.orn-val {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: var(--ls-tight);
+  color: var(--tx-0);
+  font-variant-numeric: tabular-nums;
+}
+
+.orn-lbl {
+  font-family: var(--font-mono);
+  font-size: var(--fs-3xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tx-2);
+  text-align: center;
+  max-width: 84%;
+  line-height: 1.35;
+}
+
+.orn-core svg {
+  width: 26px;
+  height: 26px;
+  color: var(--ac-1);
+  margin-bottom: 2px;
+}
+
+/* Satellite chips pinned to the ornament's outer edge */
+.orn-chip {
+  position: absolute;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--r-full);
+  background: var(--glass-solid);
+  border: 1px solid var(--brd-2);
+  box-shadow: var(--sh-md);
+  font-family: var(--font-mono);
+  font-size: var(--fs-3xs);
+  letter-spacing: 0.04em;
+  color: var(--tx-1);
+  white-space: nowrap;
+  animation: float 8s var(--ease-in-out) infinite;
+}
+
+.orn-chip svg { width: 12px; height: 12px; color: var(--ac-3); }
+
+.orn-chip--tl { top: 2%;  left: -14%; }
+.orn-chip--br { bottom: 4%; right: -12%; animation-delay: -4s; }
+
+@media (max-width: 480px) {
+  .orn-chip--tl { left: -4%; }
+  .orn-chip--br { right: -4%; }
+}
+
+/* ═══════════════════════════════════════════════
+   4 · CERTIFICATIONS
+   ═══════════════════════════════════════════════ */
+
+/* ── CERT CARD 3D ──
+   pages.css owns the card's material. Here it gains a
+   perspective camera, a depth-lifted body, foil, and a
+   seal that pops toward the viewer on hover. ── */
+
+/* The rail centres itself when it stands alone, but inside the toolbar
+   it shares a space-between row — auto margins there would fight the
+   justification and park it in the middle of the gap. */
+.cert-toolbar .filter-rail { margin-inline: 0; }
+
+.cert-card {
+  perspective: var(--perspective);
+  isolation: isolate;
+}
+
+/* The foil is a positioned sibling of the copy, so without an explicit
+   order it would paint over the text — colour-dodge at 0.72 would make
+   the title unreadable. Content is lifted to z-index 1, foil pinned to 0. */
+.cert-card > *,
+.edu-plaque > * { position: relative; z-index: 1; }
+
+.cert-card > .foil,
+.cert-card > .sheen,
+.cert-card > .glare,
+.edu-plaque > .foil,
+.edu-plaque > .sheen,
+.edu-plaque > .glare { z-index: 0; }
+
+.cert-card:hover { transform: translateY(-6px) rotateX(2.5deg); }
+
+.cert-card .cert-seal {
+  transition: transform 420ms var(--ease-spring), box-shadow var(--t-base);
+}
+
+.cert-card:hover .cert-seal {
+  transform: translateZ(34px) rotate(9deg) scale(1.14);
+  box-shadow: 0 0 26px rgba(var(--ac-3-rgb), 0.5);
+}
+
+.cert-card .cert-issuer { transition: transform 380ms var(--ease-out); }
+.cert-card:hover .cert-issuer { transform: translateZ(16px); }
+
+.cert-card .cert-title { transition: transform 380ms var(--ease-out); }
+.cert-card:hover .cert-title { transform: translateZ(10px); }
+
+/* Guilloche — the fine engraved pattern on real certificates.
+   Two rotated repeating gradients, masked to the corner. */
+.cert-card::after {
+  content: '';
+  position: absolute;
+  right: -30px;
+  bottom: -30px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background:
+    repeating-conic-gradient(
+      from 0deg,
+      rgba(var(--ac-1-rgb), 0.09) 0deg 3deg,
+      transparent 3deg 6deg
+    );
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+  transition: transform var(--t-slower), opacity var(--t-base);
+}
+
+.cert-card:hover::after {
+  transform: rotate(38deg) scale(1.12);
+  opacity: 0.9;
+}
+
+/* Grade emphasis — the number carries the weight, not the label */
+.cert-grade--peak b { color: var(--ac-3); }
+
+/* ── ISSUER RAIL ──
+   The six awarding bodies as 3D logo plates. Hovering one
+   pushes it forward off the rail. ── */
+.issuer-rail {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-3);
+  perspective: 900px;
+}
+
+.issuer-plate {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 0.7rem 1.1rem;
+  border-radius: var(--r-md);
+  background: var(--surface-card);
+  border: 1px solid var(--brd-1);
+  box-shadow: var(--sh-sm), var(--sh-inset);
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.04em;
+  color: var(--tx-1);
+  white-space: nowrap;
+  transform-style: preserve-3d;
+  transition: transform var(--t-base), border-color var(--t-base),
+              box-shadow var(--t-base), background-color var(--t-base);
+}
+
+.issuer-plate:hover {
+  transform: translateZ(26px) translateY(-4px) rotateX(-6deg);
+  border-color: var(--brd-accent);
+  background: var(--surface-card-hover);
+  box-shadow: var(--sh-lg), var(--sh-glow-1);
+}
+
+.issuer-plate img {
+  width: 18px;
+  height: 18px;
+  filter: grayscale(1) brightness(1.9);
+  opacity: 0.75;
+  transition: filter var(--t-base), opacity var(--t-base);
+}
+
+.issuer-plate:hover img { filter: none; opacity: 1; }
+
+[data-theme='light'] .issuer-plate img { filter: grayscale(1) brightness(0.5); }
+
+.issuer-plate b {
+  color: var(--ac-1);
+  font-weight: 600;
+}
+
+/* ── PODIUM ──
+   Top three graded credentials as physical blocks on a
+   tilted stage. Heights encode rank; the rotateX gives
+   the stage a floor. ── */
+.podium {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+  align-items: end;
+  perspective: 1400px;
+  padding-top: var(--sp-8);
+}
+
+.podium-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-5);
+  border-radius: var(--r-xl) var(--r-xl) var(--r-sm) var(--r-sm);
+  background: linear-gradient(170deg, var(--glass-3), var(--glass-1));
+  border: 1px solid var(--brd-2);
+  backdrop-filter: blur(var(--blur-lg));
+  -webkit-backdrop-filter: blur(var(--blur-lg));
+  box-shadow: var(--sh-lg), var(--sh-inset);
+  transform: rotateX(7deg);
+  transform-style: preserve-3d;
+  transform-origin: bottom center;
+  overflow: hidden;
+  transition: transform var(--t-slow), box-shadow var(--t-base),
+              border-color var(--t-base);
+}
+
+.podium-step:hover {
+  transform: rotateX(0deg) translateY(-8px);
+  border-color: var(--brd-accent);
+  box-shadow: var(--sh-xl), 0 0 54px rgba(var(--ac-1-rgb), 0.16);
+}
+
+/* Rank sets the block height, so first place stands tallest */
+.podium-step--1 { padding-top: var(--sp-10); }
+.podium-step--2 { padding-top: var(--sp-7); }
+.podium-step--3 { padding-top: var(--sp-6); }
+
+.podium-step--1 {
+  border-color: rgba(var(--ac-3-rgb), 0.45);
+  box-shadow: var(--sh-xl), 0 0 48px rgba(var(--ac-3-rgb), 0.14);
+}
+
+.podium-rank {
+  position: absolute;
+  top: var(--sp-3);
+  right: var(--sp-4);
+  font-family: var(--font-mono);
+  font-size: clamp(1.9rem, 4vw, 2.9rem);
+  font-weight: 700;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--brd-3);
+  letter-spacing: -0.05em;
+  pointer-events: none;
+  transition: -webkit-text-stroke-color var(--t-base);
+}
+
+.podium-step:hover .podium-rank {
+  -webkit-text-stroke-color: rgba(var(--ac-1-rgb), 0.7);
+}
+
+.podium-step--1 .podium-rank {
+  -webkit-text-stroke-color: rgba(var(--ac-3-rgb), 0.6);
+}
+
+.podium-score {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.6vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: var(--ls-tight);
+  color: var(--tx-0);
+  font-variant-numeric: tabular-nums;
+  transform: translateZ(26px);
+}
+
+.podium-step--1 .podium-score { color: var(--ac-3); }
+
+.podium-name {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--tx-0);
+  line-height: 1.4;
+  margin: 0;
+  transform: translateZ(14px);
+}
+
+.podium-org {
+  font-family: var(--font-mono);
+  font-size: var(--fs-3xs);
+  letter-spacing: 0.05em;
+  color: var(--tx-2);
+}
+
+@media (max-width: 720px) {
+  .podium { grid-template-columns: 1fr; }
+  .podium-step,
+  .podium-step--1,
+  .podium-step--2,
+  .podium-step--3 {
+    transform: none;
+    padding-top: var(--sp-6);
+    border-radius: var(--r-xl);
+  }
+  .podium-step:hover { transform: translateY(-4px); }
+}
+
+/* ── GRADE LADDER ──
+   Every graded credential as a bar. Widths animate from 0
+   once the container reveals, so the ranking builds itself.
+   --v is the score; the bar starts at 60% of the axis so
+   differences in the 88–100 band stay legible. ── */
+.ladder {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.ladder-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(120px, 34%) auto;
+  gap: var(--sp-4);
+  align-items: center;
+}
+
+.ladder-name {
+  font-size: var(--fs-sm);
+  color: var(--tx-1);
+  line-height: 1.4;
+}
+
+.ladder-name small {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-3xs);
+  letter-spacing: 0.05em;
+  color: var(--tx-3);
+  margin-top: 2px;
+}
+
+.ladder-track {
+  position: relative;
+  height: 9px;
+  border-radius: var(--r-full);
+  background: var(--surface-well);
+  border: 1px solid var(--brd-1);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.ladder-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  border-radius: var(--r-full);
+  background: var(--grad-brand);
+  box-shadow: 0 0 14px rgba(var(--ac-1-rgb), 0.6);
+  transition: width 1.5s var(--ease-glide) 180ms;
+}
+
+/* Rescale 60–100 onto 0–100% of the track */
+.is-in .ladder-fill { width: calc((var(--v, 90) - 60) / 40 * 100%); }
+
+.ladder-row--peak .ladder-fill {
+  background: var(--grad-mint);
+  box-shadow: 0 0 16px rgba(var(--ac-3-rgb), 0.7);
+}
+
+.ladder-val {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+  color: var(--tx-0);
+  font-variant-numeric: tabular-nums;
+  min-width: 4.2ch;
+  text-align: right;
+}
+
+.ladder-row--peak .ladder-val { color: var(--ac-3); }
+
+@media (max-width: 640px) {
+  .ladder-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .ladder-track { grid-column: 1 / -1; order: 3; }
+}
+
+/* ═══════════════════════════════════════════════
+   5 · EDUCATION
+   ═══════════════════════════════════════════════ */
+
+/* ── DEGREE EMBLEM ──
+   A layered 3D medallion: engraved outer ring, rotating
+   dashed track, and a lifted core holding the crest. ── */
+.emblem {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: clamp(150px, 20vw, 190px);
+  aspect-ratio: 1;
+  flex-shrink: 0;
+  perspective: 800px;
+  transform-style: preserve-3d;
+}
+
+.emblem-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--brd-2);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 0 0 6px rgba(var(--ac-1-rgb), 0.05),
+    0 0 0 14px rgba(var(--ac-1-rgb), 0.03);
+}
+
+.emblem-track {
+  position: absolute;
+  inset: 9%;
+  border-radius: 50%;
+  border: 1px dashed rgba(var(--ac-1-rgb), 0.4);
+  animation: spin 22s linear infinite;
+}
+
+.emblem-track--rev {
+  inset: 18%;
+  border-color: rgba(var(--ac-2-rgb), 0.34);
+  animation-duration: 16s;
+  animation-direction: reverse;
+}
+
+.emblem-core {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 60%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(160deg, var(--glass-4), var(--glass-1));
+  border: 1px solid var(--brd-2);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  box-shadow:
+    var(--sh-md),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 34px rgba(var(--ac-1-rgb), 0.2);
+  transform: translateZ(30px);
+  padding: 20%;
+}
+
+.emblem-core img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Circular caption ring. The SVG rotates; the text rides it. */
+.emblem-arc {
+  position: absolute;
+  inset: -3%;
+  animation: spin 40s linear infinite;
+  pointer-events: none;
+}
+
+.emblem-arc text {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  fill: var(--tx-3);
+}
+
+/* ── SEMESTER RAIL ──
+   Eight terms as cards receding on a 3D rail. The current
+   term sits forward and lit; completed ones are dimmed.
+   Horizontally scrollable rather than wrapped, so the
+   sequence stays readable as a sequence. ── */
+.sem-rail {
+  display: flex;
+  gap: var(--sp-3);
+  padding: var(--sp-6) var(--sp-2) var(--sp-8);
+  overflow-x: auto;
+  perspective: 1200px;
+  scroll-snap-type: x proximity;
+  /* Fade the scroll edges instead of cutting them */
+  mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+}
+
+.sem-rail::-webkit-scrollbar { height: 4px; }
+.sem-rail::-webkit-scrollbar-track { background: var(--surface-well); border-radius: var(--r-full); }
+.sem-rail::-webkit-scrollbar-thumb { background: var(--brd-3); border-radius: var(--r-full); }
+
+.sem-card {
+  position: relative;
+  flex: 0 0 auto;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: var(--sp-4);
+  border-radius: var(--r-lg);
+  background: var(--glass-1);
+  border: 1px solid var(--brd-1);
+  box-shadow: var(--sh-sm);
+  scroll-snap-align: center;
+  transform: rotateY(-14deg);
+  transform-style: preserve-3d;
+  opacity: 0.62;
+  transition: transform var(--t-slow), opacity var(--t-base),
+              border-color var(--t-base), box-shadow var(--t-base),
+              background-color var(--t-base);
+}
+
+.sem-card:hover {
+  transform: rotateY(0deg) translateZ(30px);
+  opacity: 1;
+  border-color: var(--brd-accent);
+  background: var(--glass-3);
+  box-shadow: var(--sh-lg), var(--sh-glow-1);
+  z-index: 2;
+}
+
+/* Completed terms get a mint tick; the live one gets the glow */
+.sem-card--done { opacity: 0.78; }
+
+.sem-card--now {
+  opacity: 1;
+  transform: rotateY(0deg) translateZ(42px);
+  background: var(--glass-3);
+  border-color: rgba(var(--ac-1-rgb), 0.5);
+  box-shadow: var(--sh-lg), 0 0 40px rgba(var(--ac-1-rgb), 0.22);
+}
+
+.sem-card--next {
+  border-style: dashed;
+  opacity: 0.45;
+}
+
+.sem-num {
+  font-family: var(--font-mono);
+  font-size: var(--fs-3xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tx-3);
+}
+
+.sem-card--now .sem-num { color: var(--ac-1); }
+
+.sem-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-base);
+  font-weight: 700;
+  color: var(--tx-0);
+  letter-spacing: var(--ls-snug);
+  margin: 0;
+}
+
+.sem-note {
+  font-size: var(--fs-xs);
+  color: var(--tx-2);
+  line-height: 1.45;
+}
+
+.sem-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: auto;
+  font-family: var(--font-mono);
+  font-size: var(--fs-3xs);
+  letter-spacing: 0.05em;
+  color: var(--ac-3);
+}
+
+.sem-flag svg { width: 11px; height: 11px; stroke-width: 3; }
+.sem-card--now .sem-flag { color: var(--ac-1); }
+.sem-card--next .sem-flag { color: var(--tx-3); }
+
+/* ── FOCUS PANELS ── */
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: var(--sp-4);
+  perspective: 1100px;
+}
+
+.focus-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-6);
+  border-radius: var(--r-xl);
+  background: var(--surface-card);
+  border: 1px solid var(--brd-1);
+  box-shadow: var(--sh-sm), var(--sh-inset);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform var(--t-base), border-color var(--t-base),
+              box-shadow var(--t-base), background-color var(--t-base);
+}
+
+.focus-card:hover {
+  transform: translateY(-6px) rotateX(3deg);
+  background: var(--surface-card-hover);
+  border-color: var(--brd-accent);
+  box-shadow: var(--sh-lg), 0 0 42px rgba(var(--ac-1-rgb), 0.1);
+}
+
+.focus-card .icon-tile { transition: transform 380ms var(--ease-spring); }
+.focus-card:hover .icon-tile { transform: translateZ(30px) scale(1.08); }
+
+.focus-title {
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: var(--tx-0);
+  margin: 0;
+}
+
+.focus-desc {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--tx-2);
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════
+   6 · CONTACT
+   ═══════════════════════════════════════════════ */
+
+/* ── AVAILABILITY RADAR ──
+   Concentric rings laid on a floor plane (rotateX) with a
+   conic sweep rotating over them. Reads as "listening"
+   without a single image. ── */
+.radar {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(100%, 300px);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  perspective: 900px;
+}
+
+.radar-plane {
+  position: absolute;
+  inset: 0;
+  transform: rotateX(58deg);
+  transform-style: preserve-3d;
+}
+
+/* Explicit modifiers rather than :nth-child / :nth-of-type — every
+   element on the plane is a <span>, so positional selectors would
+   count rings and pulses as one another. */
+.radar-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(var(--ac-1-rgb), 0.24);
+}
+
+.radar-ring--2 { inset: 17%; border-color: rgba(var(--ac-1-rgb), 0.2); }
+.radar-ring--3 { inset: 34%; border-color: rgba(var(--ac-1-rgb), 0.16); }
+.radar-ring--4 { inset: 51%; border-color: rgba(var(--ac-1-rgb), 0.12); }
+
+/* Expanding pulse that leaves the centre every few seconds */
+.radar-pulse {
+  position: absolute;
+  inset: 44%;
+  border-radius: 50%;
+  border: 1px solid var(--ac-1);
+  animation: radar-out 4s var(--ease-out) infinite;
+}
+
+.radar-pulse--2 { animation-delay: -1.35s; }
+.radar-pulse--3 { animation-delay: -2.7s; }
+
+@keyframes radar-out {
+  0%   { inset: 44%; opacity: 0.85; }
+  100% { inset: -2%; opacity: 0; }
+}
+
+/* The sweeping wedge */
+.radar-sweep {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    rgba(var(--ac-1-rgb), 0.3) 0deg,
+    rgba(var(--ac-1-rgb), 0.08) 26deg,
+    transparent 60deg,
+    transparent 360deg
+  );
+  mask-image: radial-gradient(circle, #000 30%, transparent 72%);
+  -webkit-mask-image: radial-gradient(circle, #000 30%, transparent 72%);
+  animation: spin 5.5s linear infinite;
+}
+
+/* Contacts detected on the sweep */
+.radar-blip {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ac-3);
+  box-shadow: 0 0 0 3px rgba(var(--ac-3-rgb), 0.2), 0 0 14px var(--ac-3);
+  animation: blip 5.5s var(--ease-in-out) infinite;
+}
+
+.radar-blip--a { top: 26%; left: 62%; }
+.radar-blip--b { top: 58%; left: 34%; animation-delay: -1.9s; }
+.radar-blip--c { top: 70%; left: 66%; animation-delay: -3.6s; }
+
+@keyframes blip {
+  0%, 68%, 100% { opacity: 0.18; transform: scale(0.7); }
+  78%           { opacity: 1;    transform: scale(1.25); }
+}
+
+/* Core badge standing upright at the centre of the floor */
+.radar-core {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: var(--sp-4) var(--sp-5);
+  border-radius: var(--r-lg);
+  background: var(--glass-solid);
+  border: 1px solid var(--brd-2);
+  backdrop-filter: blur(var(--blur-lg));
+  -webkit-backdrop-filter: blur(var(--blur-lg));
+  box-shadow: var(--sh-lg), 0 0 40px rgba(var(--ac-1-rgb), 0.2);
+}
+
+.radar-core b {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--tx-0);
+  letter-spacing: var(--ls-snug);
+  line-height: 1;
+}
+
+.radar-core span {
+  font-family: var(--font-mono);
+  font-size: var(--fs-3xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tx-2);
+}
+
+/* ── CHANNEL CARDS ──
+   The contact methods, as pushable 3D plates. ── */
+.chan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: var(--sp-3);
+  perspective: 1000px;
+}
+
+.chan-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-5);
+  border-radius: var(--r-lg);
+  background: var(--glass-1);
+  border: 1px solid var(--brd-1);
+  box-shadow: var(--sh-sm), var(--sh-inset);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform var(--t-base), background-color var(--t-base),
+              border-color var(--t-base), box-shadow var(--t-base);
+}
+
+.chan-card:hover {
+  transform: translateY(-6px) rotateX(4deg);
+  background: var(--glass-3);
+  border-color: var(--brd-accent);
+  box-shadow: var(--sh-lg), var(--sh-glow-1);
+}
+
+.chan-card .icon-tile { transition: transform 400ms var(--ease-spring); }
+.chan-card:hover .icon-tile { transform: translateZ(32px) scale(1.06); }
+
+.chan-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-3xs);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--tx-3);
+}
+
+.chan-value {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--tx-0);
+  word-break: break-word;
+  line-height: 1.45;
+}
+
+.chan-note {
+  font-size: var(--fs-xs);
+  color: var(--tx-2);
+  margin-top: auto;
+}
+
+.chan-card .arrow {
+  position: absolute;
+  top: var(--sp-4);
+  right: var(--sp-4);
+  color: var(--tx-3);
+  opacity: 0;
+  transform: translate(-5px, 5px);
+  transition: all var(--t-base);
+}
+
+.chan-card:hover .arrow {
+  opacity: 1;
+  transform: none;
+  color: var(--ac-1);
+}
+
+.chan-card .arrow svg { width: 15px; height: 15px; }
+
+/* ── SERVICE DECK ── */
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
+  gap: var(--sp-4);
+  perspective: 1200px;
+}
+
+.svc-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding: clamp(1.4rem, 2.6vw, 2rem);
+  border-radius: var(--r-xl);
+  background: var(--surface-card);
+  border: 1px solid var(--brd-1);
+  box-shadow: var(--sh-md), var(--sh-inset);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform var(--t-base), background-color var(--t-base),
+              border-color var(--t-base), box-shadow var(--t-base);
+}
+
+.svc-card::before {
+  content: '';
+  position: absolute;
+  inset-inline: 16%;
+  top: 0;
+  height: 1px;
+  background: var(--grad-rim);
+  opacity: 0.5;
+  transition: opacity var(--t-base), inset-inline var(--t-slow);
+}
+
+.svc-card:hover {
+  transform: translateY(-7px) rotateX(3deg);
+  background: var(--surface-card-hover);
+  border-color: var(--brd-accent);
+  box-shadow: var(--sh-lg), 0 0 46px rgba(var(--ac-1-rgb), 0.1);
+}
+
+.svc-card:hover::before { opacity: 1; inset-inline: 6%; }
+
+.svc-card .icon-tile { transition: transform 420ms var(--ease-spring); }
+.svc-card:hover .icon-tile { transform: translateZ(38px) scale(1.08); }
+
+.svc-title {
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: var(--tx-0);
+  margin: 0;
+}
+
+.svc-desc {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--tx-2);
+  margin: 0;
+}
+
+.svc-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  margin-top: auto;
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--brd-1);
+}
+
+.svc-list span {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-3xs);
+  letter-spacing: 0.04em;
+  color: var(--tx-2);
+}
+
+.svc-list span::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--ac-1);
+  flex-shrink: 0;
+  box-shadow: 0 0 6px rgba(var(--ac-1-rgb), 0.8);
+}
+
+/* ── FORM DEPTH ──
+   Focused fields rise off the panel. Small effect, but it
+   is what makes the form feel like an object. ── */
+.contact-panel form { transform-style: preserve-3d; }
+
+.field .input {
+  transition: border-color var(--t-fast), box-shadow var(--t-fast),
+              background-color var(--t-fast), transform 260ms var(--ease-out);
+}
+
+.field .input:focus { transform: translateZ(18px); }
+
+/* Character budget hint under the textarea */
+.field-hint {
+  font-family: var(--font-mono);
+  font-size: var(--fs-3xs);
+  letter-spacing: 0.04em;
+  color: var(--tx-3);
+}
+
+/* Two fields side by side where there is room */
+.field-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-4);
+}
+
+@media (max-width: 560px) {
+  .field-pair { grid-template-columns: 1fr; gap: 0; }
+}
+
+/* ── FAQ ROWS ──
+   Native <details>, restyled. No JS needed, keyboard and
+   screen readers work by default. ── */
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.faq-item {
+  border-radius: var(--r-lg);
+  background: var(--glass-1);
+  border: 1px solid var(--brd-1);
+  overflow: hidden;
+  transition: background-color var(--t-base), border-color var(--t-base);
+}
+
+.faq-item[open] {
+  background: var(--glass-2);
+  border-color: var(--brd-2);
+}
+
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding: var(--sp-4) var(--sp-5);
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--tx-0);
+  list-style: none;
+  transition: color var(--t-fast);
+}
+
+.faq-q::-webkit-details-marker { display: none; }
+
+.faq-q:hover { color: var(--ac-1); }
+
+/* Plus that rotates into a minus */
+.faq-q::after {
+  content: '+';
+  font-family: var(--font-mono);
+  font-size: var(--fs-lg);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--ac-1);
+  flex-shrink: 0;
+  transition: transform var(--t-base);
+}
+
+.faq-item[open] .faq-q::after { transform: rotate(135deg); }
+
+.faq-a {
+  padding: 0 var(--sp-5) var(--sp-5);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--tx-2);
+  margin: 0;
+}
+
+.faq-a strong { color: var(--tx-1); }
+
+/* ═══════════════════════════════════════════════
+   7 · REDUCED MOTION
+   Decorative loops stop; hover transforms flatten.
+   Reveal-driven states keep their end value so nothing
+   is left invisible or at zero width.
+   ═══════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .foil,
+  .orn-ring--a,
+  .orn-ring--b,
+  .orn-ring--c,
+  .orn::before,
+  .orn-chip,
+  .emblem-track,
+  .emblem-arc,
+  .radar-pulse,
+  .radar-sweep,
+  .radar-blip {
+    animation: none;
+  }
+
+  /* Rings still need a resting 3D pose, or they read as flat circles */
+  .orn-ring--a { transform: rotateX(72deg); }
+  .orn-ring--b { transform: rotateY(68deg); }
+  .orn-ring--c { transform: rotateX(28deg) rotateY(34deg); }
+
+  .radar-pulse { opacity: 0.3; }
+  .radar-blip  { opacity: 0.9; }
+
+  .cert-card:hover,
+  .cert-card:hover .cert-seal,
+  .cert-card:hover .cert-issuer,
+  .cert-card:hover .cert-title,
+  .cert-card:hover::after,
+  .issuer-plate:hover,
+  .podium-step,
+  .podium-step:hover,
+  .sem-card,
+  .sem-card:hover,
+  .sem-card--now,
+  .focus-card:hover,
+  .focus-card:hover .icon-tile,
+  .chan-card:hover,
+  .chan-card:hover .icon-tile,
+  .svc-card:hover,
+  .svc-card:hover .icon-tile,
+  .field .input:focus {
+    transform: none;
+  }
+
+  .sem-card { opacity: 1; }
+
+  .ladder-fill {
+    transition: none;
+    width: calc((var(--v, 90) - 60) / 40 * 100%);
+  }
+}

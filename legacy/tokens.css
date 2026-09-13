@@ -1,0 +1,169 @@
+/* ============================================================
+   TOKENS.CSS — Solid Architectural Palette: Soft Alabaster (#F7F5F2),
+   Warm Taupe Greige (#9E9184), Matte Charcoal (#1A1817) & Pure White (#FFFFFF)
+   Haute-Couture Editorial Typography: Cinzel + Playfair Display + Outfit + JetBrains Mono
+   ============================================================ */
+
+:root {
+  /* Haute-Couture Typography */
+  --font-display:   'Cinzel', 'Playfair Display', Georgia, serif;
+  --font-editorial: 'Playfair Display', 'Cinzel', Georgia, serif;
+  --font-body:      'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono:      'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+
+  /* Typography Scale */
+  --fs-2xs:  0.74rem;
+  --fs-xs:   0.86rem;
+  --fs-sm:   0.98rem;
+  --fs-base: 1.08rem;
+  --fs-md:   1.35rem;
+  --fs-lg:   1.68rem;
+  --fs-xl:   2.18rem;
+  --fs-2xl:  2.8rem;
+  --fs-3xl:  clamp(2.4rem, 4.5vw, 3.4rem);
+  --fs-4xl:  clamp(3.0rem, 6.2vw, 4.5rem);
+  --fs-hero: clamp(3.6rem, 8.5vw, 6.2rem);
+
+  /* Spacing */
+  --sp-1: 4px;   --sp-2: 8px;   --sp-3: 12px;
+  --sp-4: 16px;  --sp-5: 20px;  --sp-6: 24px;
+  --sp-8: 32px;  --sp-10: 40px; --sp-12: 48px;
+  --sp-14: 56px; --sp-16: 64px; --sp-20: 80px; --sp-24: 96px;
+
+  /* Curvatures */
+  --r-xs:   8px;
+  --r-sm:   14px;
+  --r-md:   20px;
+  --r-lg:   28px;
+  --r-xl:   36px;
+  --r-2xl:  48px;
+  --r-full: 9999px;
+  --r-card: var(--r-xl);
+
+  /* Transitions */
+  --t-fast:     160ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  --t-base:     300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  --t-slow:     500ms cubic-bezier(0.16, 1, 0.3, 1);
+  --t-spring:   520ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Layout */
+  --nav-h: 78px;
+  --max-w: 1280px;
+  --max-w-text: 740px;
+
+  /* ══ ARCHITECTURAL SOLID LIGHT PALETTE ══ */
+  --clr-bg:            #F7F5F2; /* Soft Alabaster Chalk */
+  --clr-bg-2:          #EFECE6; /* Warm Greige Depth */
+  --clr-bg-3:          #E4E0D8; /* Subdued Alabaster Stone */
+  --clr-bg-card:       rgba(255, 255, 255, 0.88); /* Frosted Pure Porcelain Glass */
+  --clr-bg-card-hover: #FFFFFF;
+  --clr-bg-sunken:     #EBE7E0; /* Sunken Greige Basin */
+
+  /* Text Colors (Matte Black, White & Refined Charcoal) */
+  --clr-text:          #000000; /* Pure Solid Black */
+  --clr-text-2:        #262320; /* Deep Charcoal */
+  --clr-text-muted:    #756C64; /* Muted Warm Greige Slate */
+  --clr-text-on-accent:#FFFFFF; /* Crisp White Text on Solid Black */
+
+  /* Solid Accent Colors (Pure Solid Black, Warm Taupe Greige) */
+  --clr-accent:        #000000; /* Pure Solid Black */
+  --clr-accent-rgb:    0, 0, 0;
+  --clr-accent-2:      #9E9184; /* Warm Taupe Greige */
+  --clr-accent-2-rgb:  158, 145, 132;
+  --clr-accent-3:      #8F8275; /* Deep Cashmere Taupe */
+  --clr-accent-3-rgb:  143, 130, 117;
+  --clr-accent-4:      #B5A89B; /* Soft Sand */
+  --clr-accent-4-rgb:  181, 168, 155;
+
+  --clr-gold:          #9E9184;
+  --clr-teal:          #557A78;
+  --clr-teal-soft:     #E3EDEC;
+  --clr-teal-glow:     rgba(85, 122, 120, 0.16);
+  --clr-champagne-glow:rgba(158, 145, 132, 0.18);
+  --clr-purple:        #7D6D78;
+  --clr-blue:          #59738A;
+  --clr-red:           #9E5959;
+  --clr-green:         #5E7A64;
+
+  /* Specular Lines & Glassmorphism Borders */
+  --clr-border:        rgba(158, 145, 132, 0.22);
+  --clr-border-hover:  rgba(26, 24, 23, 0.55);
+  --clr-border-rgb:    158, 145, 132;
+  --clr-glow-rim:      linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(158, 145, 132, 0.35) 50%, rgba(26, 24, 23, 0.1) 100%);
+  --portal-gradient:   linear-gradient(180deg, #E6EFEF 0%, #D2E4E2 60%, #B8D5D2 100%);
+
+  /* ══ FROSTED GLASSMORPHISM & AMBIENT AURAS ══ */
+  --glass-bg:          rgba(255, 255, 255, 0.82);
+  --glass-bg-card:     rgba(255, 255, 255, 0.88);
+  --glass-bg-subtle:   rgba(255, 255, 255, 0.65);
+  --glass-border:      rgba(158, 145, 132, 0.22);
+  --glass-border-glow: rgba(255, 255, 255, 0.95);
+  --glass-highlight:   linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.1) 60%);
+  --nav-bg:            rgba(247, 245, 242, 0.88);
+  --nav-border:        rgba(158, 145, 132, 0.18);
+
+  --hologram-sheen:    linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.7) 45%, rgba(85, 122, 120, 0.4) 50%, rgba(255, 255, 255, 0.7) 55%, transparent 80%);
+  --gold-sheen:        linear-gradient(105deg, transparent 20%, rgba(255, 240, 200, 0.8) 45%, rgba(212, 175, 55, 0.5) 50%, rgba(255, 240, 200, 0.8) 55%, transparent 80%);
+
+  --shadow-sm:   0 2px 8px rgba(26, 24, 23, 0.05);
+  --shadow-md:   0 10px 28px rgba(26, 24, 23, 0.08);
+  --shadow-lg:   0 20px 50px rgba(26, 24, 23, 0.12);
+
+  --clay-card:
+    0 16px 40px rgba(26, 24, 23, 0.07),
+    0 2px 6px rgba(26, 24, 23, 0.04),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.95),
+    inset 0 -2px 5px rgba(158, 145, 132, 0.1);
+
+  --clay-card-hover:
+    0 24px 60px rgba(26, 24, 23, 0.12),
+    0 0 30px rgba(158, 145, 132, 0.2),
+    inset 0 2px 3px rgba(255, 255, 255, 1),
+    inset 0 -3px 6px rgba(158, 145, 132, 0.15);
+
+  --clay-pill:
+    0 6px 16px rgba(26, 24, 23, 0.06),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.98),
+    inset 0 -1.5px 3px rgba(158, 145, 132, 0.08);
+
+  --clay-btn:
+    0 12px 28px rgba(26, 24, 23, 0.25),
+    0 3px 8px rgba(26, 24, 23, 0.15),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.4),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+
+  --neu-pressed:
+    inset 3px 3px 8px rgba(26, 24, 23, 0.12),
+    inset -3px -3px 8px rgba(255, 255, 255, 0.95);
+
+  --neu-flat-sm:
+    4px 6px 14px rgba(26, 24, 23, 0.06),
+    -4px -4px 12px rgba(255, 255, 255, 0.9);
+
+  /* 3D Spatial & Telemetry Tokens */
+  --perspective-stage: 1400px;
+  --portal-gradient:   linear-gradient(180deg, #E6EFEF 0%, #D2E4E2 60%, #B8D5D2 100%);
+  --hologram-glow:     radial-gradient(circle at 50% 40%, rgba(85, 122, 120, 0.28) 0%, rgba(158, 145, 132, 0.12) 50%, transparent 80%);
+  --radar-ping:        rgba(46, 178, 110, 0.6);
+
+  /* Device Simulator Tokens */
+  --phone-bezel:       #D6D0C7;
+  --phone-frame-outer: linear-gradient(145deg, #FFFFFF, #EBE7E0, #D6D0C7);
+  --phone-screen-bg:   #FFFFFF;
+}
+
+/* ── ACCESSIBILITY ── */
+:focus-visible {
+  outline: 2.5px solid var(--clr-accent-2);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

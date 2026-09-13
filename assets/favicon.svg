@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="qArchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1817"/>
+      <stop offset="60%" stop-color="#9E9184"/>
+      <stop offset="100%" stop-color="#B5A89B"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="#F7F5F2"/>
+  <rect width="62" height="62" x="1" y="1" rx="17" fill="none" stroke="rgba(158,145,132,0.4)" stroke-width="1.5"/>
+  <!-- Q Symbol Solid Architectural Seal -->
+  <path d="M32 14 C21.5 14 14 21.5 14 32 C14 42.5 21.5 50 32 50 C36.2 50 40 48.6 43 46.2 L47.5 50.7 C48.3 51.5 49.7 51.5 50.5 50.7 C51.3 49.9 51.3 48.5 50.5 47.7 L46.2 43.4 C48.6 40.2 50 36.3 50 32 C50 21.5 42.5 14 32 14 Z M32 20 C38.6 20 44 25.4 44 32 C44 35.2 42.7 38.1 40.6 40.2 C38.3 38.6 35.3 37.5 32 37.5 C26.5 37.5 22 40.5 20.4 43.1 C20.1 41.5 20 39.8 20 32 C20 25.4 25.4 20 32 20 Z" fill="url(#qArchGrad)"/>
+</svg>

@@ -1,0 +1,21 @@
+{
+  "name": "Qaswar Sarfraz — Portfolio",
+  "short_name": "Qaswar",
+  "description": "Flutter Developer & AI Engineer — Islamabad, Pakistan",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090E",
+  "theme_color": "#00F2FE",
+  "icons": [
+    {
+      "src": "/assets/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

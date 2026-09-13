@@ -1,0 +1,671 @@
+/* ═══════════════════════════════════════════════════════════════════
+   SKILLS — "THE ARSENAL"
+
+   The flagship page. Percentage bars are gone; every technology
+   carries an evidence tier plus the product or role that proves it.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════
+   HERO — copy beside the 3D orbit
+   ═══════════════════════════════════════════════ */
+.arsenal-hero {
+  position: relative;
+  padding-top: calc(var(--nav-h) + clamp(2.5rem, 6vw, 4.5rem));
+  padding-bottom: clamp(2rem, 5vw, 4rem);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.arsenal-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 65% at 50% 10%, #000, transparent 76%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 65% at 50% 10%, #000, transparent 76%);
+  z-index: -1;
+}
+
+.arsenal-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+.arsenal-hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  align-items: flex-start;
+}
+
+/* Quick summary strip under the hero copy */
+.arsenal-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-3);
+  width: 100%;
+  margin-top: var(--sp-2);
+}
+
+.arsenal-summary-item {
+  padding: var(--sp-4);
+  border-radius: var(--r-md);
+  background: var(--glass-1);
+  border: 1px solid var(--brd-1);
+  backdrop-filter: blur(var(--blur-sm));
+  -webkit-backdrop-filter: blur(var(--blur-sm));
+  transition: all var(--t-base);
+}
+
+.arsenal-summary-item:hover {
+  background: var(--glass-3);
+  border-color: var(--brd-accent);
+  transform: translateY(-3px);
+}
+
+.arsenal-summary-val {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: var(--ls-tight);
+  color: var(--tx-0);
+  font-variant-numeric: tabular-nums;
+}
+
+.arsenal-summary-lbl {
+  font-family: var(--font-mono);
+  font-size: var(--fs-3xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tx-2);
+  margin-top: 6px;
+  display: block;
+}
+
+@media (max-width: 980px) {
+  .arsenal-hero-grid { grid-template-columns: 1fr; }
+  .orbit-stage { max-width: 420px; }
+}
+
+@media (max-width: 520px) {
+  .arsenal-summary { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════
+   TIER LEGEND — explains what the badges mean.
+   Without this the tiers are just decoration.
+   ═══════════════════════════════════════════════ */
+.tier-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-5);
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-5) var(--sp-6);
+  border-radius: var(--r-lg);
+  background: var(--surface-well);
+  border: 1px solid var(--brd-1);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.tier-legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-size: var(--fs-xs);
+  color: var(--tx-2);
+}
+
+.tier-legend-item b {
+  color: var(--tx-1);
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════════
+   ARSENAL GRID
+   ═══════════════════════════════════════════════ */
+.arsenal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 430px), 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  align-items: start;
+}
+
+.arsenal-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  padding: clamp(1.5rem, 2.6vw, 2.25rem);
+  border-radius: var(--r-2xl);
+  background: var(--surface-card);
+  border: 1px solid var(--brd-1);
+  backdrop-filter: blur(var(--blur-lg)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--blur-lg)) saturate(140%);
+  box-shadow: var(--sh-md), var(--sh-inset);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 260ms var(--ease-out), background-color var(--t-base),
+              border-color var(--t-base), box-shadow var(--t-base);
+}
+
+.arsenal-card::before {
+  content: '';
+  position: absolute;
+  inset-inline: 12%;
+  top: 0;
+  height: 1px;
+  background: var(--grad-rim);
+  opacity: 0.5;
+  transition: opacity var(--t-base), inset-inline var(--t-slow);
+  pointer-events: none;
+}
+
+.arsenal-card:hover {
+  background: var(--surface-card-hover);
+  border-color: var(--brd-2);
+  box-shadow: var(--sh-lg), var(--sh-inset), 0 0 60px rgba(var(--ac-1-rgb), 0.09);
+}
+
+.arsenal-card:hover::before { opacity: 1; inset-inline: 4%; }
+
+/* Domain-tinted glow in the top-right corner of each card */
+.arsenal-card::after {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -18%;
+  width: 58%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--tint, var(--ac-1-rgb)), 0.16), transparent 70%);
+  filter: blur(34px);
+  opacity: 0.7;
+  transition: opacity var(--t-slow), transform var(--t-slow);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.arsenal-card:hover::after {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+.arsenal-card > * { position: relative; z-index: 1; }
+
+/* Per-domain accent, set with a --tint override in the markup */
+.arsenal-card[data-cat~='mobile']  { --tint: var(--ac-1-rgb); }
+.arsenal-card[data-cat~='ai']      { --tint: var(--ac-2-rgb); }
+.arsenal-card[data-cat~='cloud']   { --tint: var(--ac-3-rgb); }
+.arsenal-card[data-cat~='core']    { --tint: var(--ac-4-rgb); }
+.arsenal-card[data-cat~='tooling'] { --tint: 255, 184, 107; }
+
+/* ── CARD HEADER ── */
+.arsenal-head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  padding-bottom: var(--sp-5);
+  border-bottom: 1px solid var(--brd-1);
+}
+
+.arsenal-head-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: var(--r-md);
+  background: rgba(var(--tint, var(--ac-1-rgb)), 0.12);
+  border: 1px solid rgba(var(--tint, var(--ac-1-rgb)), 0.34);
+  color: rgb(var(--tint, var(--ac-1-rgb)));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  transition: all var(--t-base);
+}
+
+.arsenal-card:hover .arsenal-head-icon {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
+              0 0 28px rgba(var(--tint, var(--ac-1-rgb)), 0.36);
+}
+
+.arsenal-head-text { flex: 1; min-width: 0; }
+
+.arsenal-card-title {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--tx-0);
+  margin: 0;
+  letter-spacing: var(--ls-snug);
+}
+
+.arsenal-card-sub {
+  font-family: var(--font-mono);
+  font-size: var(--fs-3xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tx-2);
+  margin-top: 4px;
+}
+
+.arsenal-count {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  color: rgb(var(--tint, var(--ac-1-rgb)));
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--r-full);
+  background: rgba(var(--tint, var(--ac-1-rgb)), 0.1);
+  border: 1px solid rgba(var(--tint, var(--ac-1-rgb)), 0.3);
+  flex-shrink: 0;
+}
+
+/* ── TECH ROWS ── */
+.tech-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.tech-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-3);
+  border-radius: var(--r-md);
+  border: 1px solid transparent;
+  transition: background-color var(--t-base), border-color var(--t-base),
+              transform var(--t-base);
+}
+
+.tech-row:hover {
+  background: var(--glass-2);
+  border-color: var(--brd-1);
+  transform: translateX(5px);
+}
+
+/* Accent bar that grows on the left edge on hover */
+.tech-row::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  translate: 0 -50%;
+  width: 2px;
+  height: 0;
+  border-radius: var(--r-full);
+  background: rgb(var(--tint, var(--ac-1-rgb)));
+  box-shadow: 0 0 10px rgba(var(--tint, var(--ac-1-rgb)), 0.8);
+  transition: height var(--t-base);
+}
+
+.tech-row:hover::before { height: 62%; }
+
+.tech-row:hover .logo-tile {
+  background: rgba(var(--tint, var(--ac-1-rgb)), 0.14);
+  border-color: rgba(var(--tint, var(--ac-1-rgb)), 0.42);
+  transform: scale(1.06);
+}
+
+.tech-row:hover .logo-tile img {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.tech-row:hover .logo-tile svg { color: rgb(var(--tint, var(--ac-1-rgb))); }
+
+.tech-meta { min-width: 0; }
+
+.tech-name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--tx-0);
+  letter-spacing: -0.01em;
+}
+
+.tech-note {
+  display: block;
+  font-size: var(--fs-xs);
+  color: var(--tx-3);
+  line-height: 1.45;
+  margin-top: 2px;
+  transition: color var(--t-base);
+}
+
+.tech-row:hover .tech-note { color: var(--tx-2); }
+
+.tech-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+/* Where the skill was actually used — the credibility payload */
+.tech-evidence {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-3xs);
+  letter-spacing: 0.04em;
+  color: var(--tx-3);
+  white-space: nowrap;
+  transition: color var(--t-base);
+}
+
+.tech-evidence svg {
+  width: 10px;
+  height: 10px;
+  opacity: 0.7;
+}
+
+.tech-row:hover .tech-evidence { color: rgb(var(--tint, var(--ac-1-rgb))); }
+
+@media (max-width: 560px) {
+  .tech-row {
+    grid-template-columns: auto minmax(0, 1fr);
+    row-gap: var(--sp-2);
+  }
+
+  .tech-right {
+    grid-column: 2;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--sp-3);
+    flex-wrap: wrap;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   ARCHITECTURE STACK SECTION
+   ═══════════════════════════════════════════════ */
+.arch-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.arch-copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  align-items: flex-start;
+}
+
+/* Legend mirroring the 3D layers, so the diagram stays readable
+   even for someone who never hovers it */
+.arch-legend {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  width: 100%;
+}
+
+.arch-legend-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-md);
+  background: var(--glass-1);
+  border: 1px solid var(--brd-1);
+  font-size: var(--fs-sm);
+  color: var(--tx-1);
+  transition: all var(--t-base);
+}
+
+.arch-legend-row:hover {
+  background: var(--glass-3);
+  border-color: var(--brd-accent);
+  transform: translateX(5px);
+}
+
+.arch-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: rgb(var(--dot, var(--ac-1-rgb)));
+  box-shadow: 0 0 10px rgba(var(--dot, var(--ac-1-rgb)), 0.9);
+}
+
+.arch-legend-row code {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: var(--fs-3xs);
+  color: var(--tx-3);
+}
+
+/* Layer tint inside the exploding 3D stack */
+.stack-layer[data-tone='1'] { --tone: var(--ac-1-rgb); }
+.stack-layer[data-tone='2'] { --tone: var(--ac-2-rgb); }
+.stack-layer[data-tone='3'] { --tone: var(--ac-3-rgb); }
+.stack-layer[data-tone='4'] { --tone: 255, 184, 107; }
+.stack-layer[data-tone='5'] { --tone: var(--ac-4-rgb); }
+
+.stack-layer .stack-layer-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: var(--r-sm);
+  background: rgba(var(--tone, var(--ac-1-rgb)), 0.14);
+  border: 1px solid rgba(var(--tone, var(--ac-1-rgb)), 0.36);
+  color: rgb(var(--tone, var(--ac-1-rgb)));
+}
+
+.stack-layer .stack-layer-icon img {
+  width: 19px;
+  height: 19px;
+  filter: grayscale(1) brightness(1.9);
+}
+
+[data-theme='light'] .stack-layer .stack-layer-icon img {
+  filter: grayscale(1) brightness(0.55);
+}
+
+@media (max-width: 980px) {
+  .arch-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════
+   PIPELINE — animated request flow
+   ═══════════════════════════════════════════════ */
+.pipeline {
+  position: relative;
+  padding: clamp(1.75rem, 3.5vw, 3rem);
+  border-radius: var(--r-2xl);
+  background: var(--surface-card);
+  border: 1px solid var(--brd-1);
+  backdrop-filter: blur(var(--blur-lg));
+  -webkit-backdrop-filter: blur(var(--blur-lg));
+  box-shadow: var(--sh-lg), var(--sh-inset);
+  overflow: hidden;
+}
+
+.pipeline::before {
+  content: '';
+  position: absolute;
+  inset-inline: 20%;
+  top: 0;
+  height: 1px;
+  background: var(--grad-rim);
+  opacity: 0.7;
+}
+
+.pipeline-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  align-items: center;
+  text-align: center;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.pipeline-title {
+  font-size: var(--fs-xl);
+  margin: 0;
+}
+
+.pipeline-desc {
+  font-size: var(--fs-sm);
+  color: var(--tx-2);
+  max-width: 60ch;
+  margin: 0;
+}
+
+/* Nodes sit in a row with the animated SVG rail behind them */
+.pipeline-flow {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+/* The rail. Absolutely positioned so it threads behind the nodes. */
+.pipeline-rail {
+  position: absolute;
+  top: 46px;
+  inset-inline: 12%;
+  height: 2px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.pipeline-rail svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.pipeline-node {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-5);
+  border-radius: var(--r-lg);
+  background: var(--glass-2);
+  border: 1px solid var(--brd-2);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  box-shadow: var(--sh-sm), var(--sh-inset);
+  transform-style: preserve-3d;
+  transition: transform 260ms var(--ease-out), background-color var(--t-base),
+              border-color var(--t-base), box-shadow var(--t-base);
+}
+
+.pipeline-node:hover {
+  background: var(--glass-4);
+  border-color: var(--brd-accent);
+  box-shadow: var(--sh-md), var(--sh-glow-1);
+}
+
+.pipeline-node-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+
+.pipeline-step {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--grad-brand);
+  color: var(--tx-inv);
+  font-family: var(--font-mono);
+  font-size: var(--fs-3xs);
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(var(--ac-1-rgb), 0.36);
+}
+
+.pipeline-node-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--tx-0);
+  line-height: 1.35;
+}
+
+.pipeline-node-desc {
+  font-size: var(--fs-xs);
+  color: var(--tx-2);
+  line-height: 1.55;
+}
+
+.pipeline-latency {
+  font-family: var(--font-mono);
+  font-size: var(--fs-3xs);
+  color: var(--ac-3);
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 900px) {
+  .pipeline-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pipeline-rail { display: none; }
+}
+
+@media (max-width: 520px) {
+  .pipeline-flow { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════
+   CAPABILITY CALLOUT — closing CTA band
+   ═══════════════════════════════════════════════ */
+.cap-band {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border-radius: var(--r-2xl);
+  background: linear-gradient(
+    120deg,
+    rgba(var(--ac-1-rgb), 0.1),
+    rgba(var(--ac-2-rgb), 0.08) 55%,
+    transparent
+  );
+  border: 1px solid var(--brd-2);
+  backdrop-filter: blur(var(--blur-lg));
+  -webkit-backdrop-filter: blur(var(--blur-lg));
+  box-shadow: var(--sh-lg), var(--sh-inset);
+  overflow: hidden;
+}
+
+.cap-band-title {
+  font-size: var(--fs-2xl);
+  margin: 0 0 var(--sp-3);
+}
+
+.cap-band-desc {
+  font-size: var(--fs-sm);
+  color: var(--tx-2);
+  max-width: 62ch;
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .cap-band { grid-template-columns: 1fr; }
+}

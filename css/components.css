@@ -1,0 +1,1052 @@
+/* ═══════════════════════════════════════════════════════════════════
+   COMPONENTS — glass surfaces, buttons, pills, badges, forms, marquee
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════
+   GLASS PANEL
+   The core material of the whole site.
+
+   Four things make frosted glass read as real:
+     1. a translucent fill (not a flat colour)
+     2. a backdrop blur + slight saturation boost
+     3. a bright rim on the top edge, dark on the bottom
+     4. a soft outer shadow so it floats off the substrate
+   ═══════════════════════════════════════════════ */
+.glass {
+  position: relative;
+  background: var(--surface-card);
+  border: 1px solid var(--brd-1);
+  border-radius: var(--r-xl);
+  backdrop-filter: blur(var(--blur-md)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(140%);
+  box-shadow: var(--sh-md), var(--sh-inset);
+  transition: background-color var(--t-base), border-color var(--t-base),
+              box-shadow var(--t-base), transform var(--t-base);
+}
+
+/* The lit top edge. Drawn as a 1px gradient strip. */
+.glass::before {
+  content: '';
+  position: absolute;
+  inset-inline: 12%;
+  top: 0;
+  height: 1px;
+  background: var(--grad-rim);
+  opacity: 0.55;
+  transition: opacity var(--t-base), inset-inline var(--t-slow);
+  pointer-events: none;
+}
+
+.glass:hover::before {
+  opacity: 1;
+  inset-inline: 4%;
+}
+
+.glass--flush { border-radius: var(--r-lg); }
+.glass--soft  { border-radius: var(--r-2xl); }
+
+.glass--raised {
+  background: var(--glass-2);
+  box-shadow: var(--sh-lg), var(--sh-inset);
+}
+
+.glass--deep {
+  backdrop-filter: blur(var(--blur-xl)) saturate(150%);
+  -webkit-backdrop-filter: blur(var(--blur-xl)) saturate(150%);
+  background: var(--glass-solid);
+}
+
+.glass--well {
+  background: var(--surface-well);
+  box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.34);
+}
+
+.glass--well::before { display: none; }
+
+/* Interactive glass — lifts and warms toward the accent on hover */
+.glass--hover:hover {
+  background: var(--surface-card-hover);
+  border-color: var(--brd-2);
+  box-shadow: var(--sh-lg), var(--sh-inset),
+              0 0 40px rgba(var(--ac-1-rgb), 0.08);
+}
+
+/* Fallback: without backdrop-filter, glass must become opaque or
+   text lands on top of the aurora and becomes unreadable. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass, .glass--deep { background: var(--bg-2); }
+  [data-theme='light'] .glass,
+  [data-theme='light'] .glass--deep { background: #FFFFFF; }
+}
+
+/* ═══════════════════════════════════════════════
+   BUTTONS
+   ═══════════════════════════════════════════════ */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  padding: 0.92rem 1.6rem;
+  border-radius: var(--r-full);
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  white-space: nowrap;
+  cursor: pointer;
+  isolation: isolate;
+  overflow: hidden;
+  transition: transform var(--t-base), box-shadow var(--t-base),
+              background-color var(--t-base), border-color var(--t-base),
+              color var(--t-base);
+}
+
+.btn:active { transform: translateY(1px) scale(0.985); }
+
+.btn svg { width: 17px; height: 17px; }
+
+/* The arrow inside a button nudges forward on hover */
+.btn .btn-arrow {
+  display: inline-block;
+  transition: transform var(--t-base);
+}
+
+.btn:hover .btn-arrow { transform: translateX(4px); }
+
+/* ── PRIMARY — solid gradient fill ── */
+.btn-primary {
+  background: var(--grad-brand);
+  background-size: 200% 100%;
+  color: var(--tx-inv);
+  border: 1px solid transparent;
+  box-shadow: var(--sh-btn);
+  font-weight: 700;
+}
+
+.btn-primary:hover {
+  background-position: 100% 0;
+  transform: translateY(-2px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.28) inset,
+              0 14px 34px rgba(var(--ac-1-rgb), 0.36),
+              0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Specular sweep that crosses the fill on hover */
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.42) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform var(--t-slow);
+  z-index: -1;
+}
+
+.btn-primary:hover::after { transform: translateX(100%); }
+
+/* ── OUTLINE — glass with a visible rim ── */
+.btn-outline {
+  background: var(--glass-1);
+  color: var(--tx-0);
+  border: 1px solid var(--brd-2);
+}
+
+.btn-outline:hover {
+  background: var(--glass-3);
+  border-color: var(--brd-accent);
+  color: var(--ac-1);
+  transform: translateY(-2px);
+  box-shadow: var(--sh-glow-1);
+}
+
+/* ── GHOST — text only until hovered ── */
+.btn-ghost {
+  background: transparent;
+  color: var(--tx-2);
+  border: 1px solid transparent;
+  padding-inline: 1.1rem;
+}
+
+.btn-ghost:hover {
+  background: var(--glass-2);
+  color: var(--tx-0);
+  border-color: var(--brd-1);
+}
+
+/* ── SIZES ── */
+.btn-sm {
+  padding: 0.6rem 1.15rem;
+  font-size: var(--fs-xs);
+}
+
+.btn-sm svg { width: 15px; height: 15px; }
+
+.btn-lg {
+  padding: 1.1rem 2.1rem;
+  font-size: var(--fs-base);
+}
+
+.btn-full { width: 100%; }
+
+.btn:disabled,
+.btn[aria-disabled='true'] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Icon-only round button */
+.btn-icon {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: var(--r-full);
+  display: inline-grid;
+  place-items: center;
+  background: var(--glass-2);
+  border: 1px solid var(--brd-1);
+  color: var(--tx-2);
+  transition: all var(--t-base);
+}
+
+.btn-icon:hover {
+  background: var(--glass-4);
+  border-color: var(--brd-accent);
+  color: var(--ac-1);
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: var(--sh-glow-1);
+}
+
+/* Button cluster */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  align-items: center;
+}
+
+/* ═══════════════════════════════════════════════
+   PILLS & BADGES
+   ═══════════════════════════════════════════════ */
+/* PERF NOTE on backdrop-filter
+   Each blurred element is its own GPU sampling pass. Large signature
+   surfaces (.glass, .card, the nav, the mobile sheet, #to-top) keep
+   theirs — that is where the material actually reads. The small,
+   numerous ones below do not: a pill sits on a flat section fill, so
+   it had nothing interesting to refract, and a page can easily carry
+   forty of them. Removing those recovered the majority of the blur
+   cost with no visible change. */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 0.42rem 0.85rem;
+  border-radius: var(--r-full);
+  background: var(--glass-2);
+  border: 1px solid var(--brd-1);
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--tx-2);
+  white-space: nowrap;
+  transition: all var(--t-base);
+}
+
+a.pill:hover,
+button.pill:hover {
+  background: var(--glass-4);
+  border-color: var(--brd-accent);
+  color: var(--ac-1);
+  transform: translateY(-1px);
+}
+
+.pill svg { width: 13px; height: 13px; }
+
+.pill--accent {
+  background: var(--ac-1-dim);
+  border-color: var(--brd-accent);
+  color: var(--ac-1);
+}
+
+.pill--violet {
+  background: var(--ac-2-dim);
+  border-color: rgba(var(--ac-2-rgb), 0.4);
+  color: var(--ac-2);
+}
+
+.pill--mint {
+  background: var(--ac-3-dim);
+  border-color: rgba(var(--ac-3-rgb), 0.4);
+  color: var(--ac-3);
+}
+
+/* Tech chip — for stack listings */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.36rem 0.75rem;
+  border-radius: var(--r-sm);
+  background: var(--glass-2);
+  border: 1px solid var(--brd-1);
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  font-weight: 500;
+  color: var(--tx-2);
+  white-space: nowrap;
+  transition: all var(--t-fast);
+}
+
+.chip:hover {
+  background: var(--ac-1-dim);
+  border-color: var(--brd-accent);
+  color: var(--ac-1);
+  transform: translateY(-2px);
+}
+
+.chip img { width: 13px; height: 13px; }
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+/* Numbered index badge — the big "01" on cards */
+.num-badge {
+  font-family: var(--font-mono);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--brd-3);
+  letter-spacing: -0.04em;
+  transition: -webkit-text-stroke-color var(--t-base), color var(--t-base);
+}
+
+.card:hover .num-badge,
+.glass--hover:hover .num-badge {
+  -webkit-text-stroke-color: rgba(var(--ac-1-rgb), 0.7);
+}
+
+/* ═══════════════════════════════════════════════
+   STATUS DOT — pulsing "available" indicator
+   ═══════════════════════════════════════════════ */
+.status-dot {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+}
+
+.status-dot i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ac-3);
+  box-shadow: 0 0 10px var(--ac-3);
+}
+
+.status-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid var(--ac-3);
+  animation: ping 2.4s var(--ease-out) infinite;
+}
+
+@keyframes ping {
+  0%        { transform: scale(0.6); opacity: 0.9; }
+  70%, 100% { transform: scale(2.4); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-dot::after { animation: none; opacity: 0.3; }
+}
+
+/* Live status capsule */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 0.5rem 1rem 0.5rem 0.8rem;
+  border-radius: var(--r-full);
+  background: var(--glass-2);
+  border: 1px solid var(--brd-1);
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  color: var(--tx-1);
+  letter-spacing: 0.02em;
+}
+
+/* ═══════════════════════════════════════════════
+   TIER BADGE — replaces self-rated percentages.
+   Signals depth of use, and pairs with an evidence chip
+   naming where the skill was actually applied.
+   ═══════════════════════════════════════════════ */
+.tier {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.24rem 0.6rem;
+  border-radius: var(--r-full);
+  font-family: var(--font-mono);
+  font-size: var(--fs-3xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  border: 1px solid;
+}
+
+/* Shipped in a real product */
+.tier--production {
+  background: rgba(var(--ac-3-rgb), 0.13);
+  border-color: rgba(var(--ac-3-rgb), 0.45);
+  color: var(--ac-3);
+}
+
+/* Deep working knowledge, used substantially */
+.tier--advanced {
+  background: rgba(var(--ac-1-rgb), 0.13);
+  border-color: rgba(var(--ac-1-rgb), 0.42);
+  color: var(--ac-1);
+}
+
+/* Actively building competence */
+.tier--working {
+  background: rgba(var(--ac-2-rgb), 0.11);
+  border-color: rgba(var(--ac-2-rgb), 0.36);
+  color: var(--ac-2);
+}
+
+/* Filled dot count, drawn purely with box-shadow */
+.tier-dots {
+  display: inline-flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.tier-dots i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.35;
+}
+
+.tier--production .tier-dots i,
+.tier--advanced .tier-dots i:nth-child(-n+2),
+.tier--working .tier-dots i:nth-child(-n+1) { opacity: 1; }
+
+/* ═══════════════════════════════════════════════
+   CARDS
+   ═══════════════════════════════════════════════ */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding: clamp(1.4rem, 2.4vw, 2rem);
+  background: var(--surface-card);
+  border: 1px solid var(--brd-1);
+  border-radius: var(--r-xl);
+  backdrop-filter: blur(var(--blur-md)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(140%);
+  box-shadow: var(--sh-md), var(--sh-inset);
+  overflow: hidden;
+  transition: transform var(--t-base), background-color var(--t-base),
+              border-color var(--t-base), box-shadow var(--t-base);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset-inline: 14%;
+  top: 0;
+  height: 1px;
+  background: var(--grad-rim);
+  opacity: 0.45;
+  transition: opacity var(--t-base), inset-inline var(--t-slow);
+  pointer-events: none;
+}
+
+.card:hover {
+  background: var(--surface-card-hover);
+  border-color: var(--brd-2);
+  box-shadow: var(--sh-lg), var(--sh-inset),
+              0 0 50px rgba(var(--ac-1-rgb), 0.08);
+}
+
+.card:hover::before { opacity: 1; inset-inline: 5%; }
+
+.card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-4);
+}
+
+.card-title {
+  font-size: var(--fs-lg);
+  color: var(--tx-0);
+  margin: 0;
+}
+
+.card-desc {
+  font-size: var(--fs-sm);
+  color: var(--tx-2);
+  line-height: var(--lh-body);
+  margin: 0;
+}
+
+/* Icon tile — the square glass plate an icon sits on */
+.icon-tile {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: var(--r-md);
+  background: var(--glass-3);
+  border: 1px solid var(--brd-2);
+  color: var(--ac-1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14),
+              0 4px 14px rgba(0, 0, 0, 0.3);
+  transition: all var(--t-base);
+}
+
+.card:hover .icon-tile,
+.glass--hover:hover .icon-tile {
+  background: var(--ac-1-dim);
+  border-color: var(--brd-accent);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
+              0 0 26px rgba(var(--ac-1-rgb), 0.34);
+}
+
+.icon-tile--sm { width: 38px; height: 38px; border-radius: var(--r-sm); }
+.icon-tile--lg { width: 60px; height: 60px; border-radius: var(--r-lg); }
+
+.icon-tile--violet { color: var(--ac-2); }
+.icon-tile--mint   { color: var(--ac-3); }
+
+/* Brand logo tile — holds a downloaded simple-icons SVG.
+   Logos arrive in their own brand colour; the tile normalises
+   them so a mixed set still reads as one system. */
+.logo-tile {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: var(--r-sm);
+  background: var(--glass-3);
+  border: 1px solid var(--brd-2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: all var(--t-base);
+}
+
+.logo-tile img {
+  width: 21px;
+  height: 21px;
+  /* Brand colours are muted at rest, full-strength on hover.
+     Keeps a 28-logo grid from looking like a sticker sheet. */
+  filter: grayscale(1) brightness(1.9) contrast(0.85);
+  opacity: 0.68;
+  transition: filter var(--t-base), opacity var(--t-base), transform var(--t-base);
+}
+
+.logo-tile svg { width: 21px; height: 21px; color: var(--tx-1); }
+
+[data-theme='light'] .logo-tile img {
+  filter: grayscale(1) brightness(0.55) contrast(1.1);
+}
+
+/* ═══════════════════════════════════════════════
+   FEATURE LIST — checkmark rows
+   ═══════════════════════════════════════════════ */
+.feat-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.feat-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  font-size: var(--fs-sm);
+  color: var(--tx-1);
+  line-height: 1.55;
+}
+
+.feat-row strong { color: var(--tx-0); font-weight: 600; }
+
+.feat-check {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(var(--ac-3-rgb), 0.14);
+  border: 1px solid rgba(var(--ac-3-rgb), 0.36);
+  color: var(--ac-3);
+}
+
+.feat-check svg { width: 11px; height: 11px; stroke-width: 3; }
+
+/* ═══════════════════════════════════════════════
+   METRIC TILE — animated counters
+   ═══════════════════════════════════════════════ */
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: var(--sp-4);
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: var(--sp-6);
+  border-radius: var(--r-lg);
+  background: var(--surface-card);
+  border: 1px solid var(--brd-1);
+  box-shadow: var(--sh-sm), var(--sh-inset);
+  transition: all var(--t-base);
+}
+
+.metric:hover {
+  border-color: var(--brd-accent);
+  transform: translateY(-4px);
+  box-shadow: var(--sh-md), var(--sh-glow-1);
+}
+
+.metric-val {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.6vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: var(--ls-tight);
+  color: var(--tx-0);
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-val .unit {
+  font-size: 0.5em;
+  color: var(--ac-1);
+  margin-left: 0.1em;
+  vertical-align: super;
+}
+
+.metric-lbl {
+  font-family: var(--font-mono);
+  font-size: var(--fs-3xs);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--tx-2);
+}
+
+.metric-sub {
+  font-size: var(--fs-xs);
+  color: var(--tx-3);
+}
+
+/* ═══════════════════════════════════════════════
+   FILTER RAIL — segmented control with a sliding
+   indicator positioned from JS via CSS vars.
+   ═══════════════════════════════════════════════ */
+.filter-rail {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-1);
+  padding: var(--sp-2);
+  border-radius: var(--r-full);
+  background: var(--surface-well);
+  border: 1px solid var(--brd-1);
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* The pill that slides behind the active button */
+.filter-rail::before {
+  content: '';
+  position: absolute;
+  top: var(--sp-2);
+  left: 0;
+  height: calc(100% - var(--sp-2) * 2);
+  width: var(--ind-w, 0px);
+  transform: translateX(var(--ind-x, 0px));
+  border-radius: var(--r-full);
+  background: var(--grad-brand);
+  box-shadow: 0 4px 16px rgba(var(--ac-1-rgb), 0.34);
+  transition: transform var(--t-slow), width var(--t-slow), opacity var(--t-base);
+  opacity: var(--ind-o, 0);
+  pointer-events: none;
+}
+
+.filter-btn {
+  position: relative;
+  z-index: 1;
+  padding: 0.62rem 1.15rem;
+  border-radius: var(--r-full);
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tx-2);
+  white-space: nowrap;
+  transition: color var(--t-base);
+}
+
+.filter-btn:hover { color: var(--tx-0); }
+
+.filter-btn.is-active {
+  color: var(--tx-inv);
+  font-weight: 700;
+}
+
+/* Filtered-out grid items */
+.is-filtered {
+  display: none !important;
+}
+
+/* ═══════════════════════════════════════════════
+   FORMS
+   ═══════════════════════════════════════════════ */
+.field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-5);
+}
+
+.field label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-3xs);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--tx-2);
+  transition: color var(--t-fast);
+}
+
+.field:focus-within label { color: var(--ac-1); }
+
+.input {
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--r-md);
+  background: var(--surface-input);
+  border: 1px solid var(--brd-1);
+  color: var(--tx-0);
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  transition: border-color var(--t-fast), box-shadow var(--t-fast),
+              background-color var(--t-fast);
+}
+
+.input::placeholder { color: var(--tx-3); }
+
+.input:hover { border-color: var(--brd-2); }
+
+.input:focus {
+  outline: none;
+  border-color: var(--ac-1);
+  background: var(--glass-2);
+  box-shadow: 0 0 0 3px rgba(var(--ac-1-rgb), 0.16),
+              0 0 26px rgba(var(--ac-1-rgb), 0.12);
+}
+
+textarea.input {
+  min-height: 150px;
+  resize: vertical;
+  line-height: 1.65;
+}
+
+select.input {
+  cursor: pointer;
+  appearance: none;
+  /* Chevron drawn as an inline SVG so it recolours with the theme */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238A94AB' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 16px;
+  padding-right: 2.75rem;
+}
+
+select.input option {
+  background: var(--bg-3);
+  color: var(--tx-0);
+}
+
+.input:user-invalid {
+  border-color: var(--ac-4);
+  box-shadow: 0 0 0 3px rgba(var(--ac-4-rgb), 0.14);
+}
+
+/* Form status message */
+.form-status {
+  display: none;
+  margin-top: var(--sp-4);
+  padding: var(--sp-4);
+  border-radius: var(--r-md);
+  font-size: var(--fs-sm);
+  line-height: 1.55;
+  border: 1px solid;
+}
+
+.form-status.is-shown { display: block; }
+
+.form-status--ok {
+  background: rgba(var(--ac-3-rgb), 0.1);
+  border-color: rgba(var(--ac-3-rgb), 0.4);
+  color: var(--ac-3);
+}
+
+.form-status--err {
+  background: rgba(var(--ac-4-rgb), 0.1);
+  border-color: rgba(var(--ac-4-rgb), 0.4);
+  color: var(--ac-4);
+}
+
+/* ═══════════════════════════════════════════════
+   MARQUEE — infinite horizontal scroll.
+   The track holds two identical lists; translating
+   exactly -50% makes the loop seamless.
+   ═══════════════════════════════════════════════ */
+.marquee {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--sp-5);
+  /* Fade both edges instead of hard-cutting the content */
+  mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--marquee-dur, 42s) linear infinite;
+}
+
+.marquee--reverse .marquee-track { animation-direction: reverse; }
+
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+.marquee-list {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-8);
+  padding-right: var(--sp-8);
+  flex-shrink: 0;
+}
+
+@keyframes marquee {
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.6vw, 1.25rem);
+  font-weight: 500;
+  letter-spacing: var(--ls-snug);
+  color: var(--tx-2);
+  white-space: nowrap;
+  transition: color var(--t-base);
+}
+
+.marquee-item:hover { color: var(--tx-0); }
+
+.marquee-item img {
+  width: 20px;
+  height: 20px;
+  filter: grayscale(1) brightness(1.8);
+  opacity: 0.6;
+  transition: all var(--t-base);
+}
+
+.marquee-item:hover img {
+  filter: none;
+  opacity: 1;
+}
+
+[data-theme='light'] .marquee-item img { filter: grayscale(1) brightness(0.5); }
+
+.marquee-sep {
+  color: var(--ac-1);
+  opacity: 0.5;
+  font-size: 0.7em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+  .marquee {
+    overflow-x: auto;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   BREADCRUMB
+   ═══════════════════════════════════════════════ */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  color: var(--tx-3);
+  letter-spacing: 0.05em;
+}
+
+.breadcrumb a {
+  color: var(--tx-2);
+  transition: color var(--t-fast);
+}
+
+.breadcrumb a:hover { color: var(--ac-1); }
+
+.breadcrumb .sep { color: var(--tx-3); opacity: 0.55; }
+
+.breadcrumb [aria-current] { color: var(--tx-1); }
+
+/* ═══════════════════════════════════════════════
+   QUOTE CARD
+   ═══════════════════════════════════════════════ */
+.quote {
+  position: relative;
+  font-size: var(--fs-md);
+  line-height: 1.72;
+  color: var(--tx-1);
+  font-style: normal;
+}
+
+.quote strong { color: var(--tx-0); }
+
+/* Oversized decorative opening mark */
+.quote::before {
+  content: '\201C';
+  position: absolute;
+  top: -0.5rem;
+  left: -0.15em;
+  font-family: var(--font-display);
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--ac-1);
+  opacity: 0.16;
+  pointer-events: none;
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--grad-brand);
+  color: var(--tx-inv);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 16px rgba(var(--ac-1-rgb), 0.3);
+}
+
+.avatar--violet { background: var(--grad-brand-r); }
+
+/* ═══════════════════════════════════════════════
+   SCROLL PROGRESS + BACK TO TOP
+   ═══════════════════════════════════════════════ */
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  transform: scaleX(var(--progress, 0));
+  transform-origin: 0 50%;
+  background: var(--grad-brand);
+  box-shadow: 0 0 12px rgba(var(--ac-1-rgb), 0.7);
+  z-index: 9000;
+  pointer-events: none;
+}
+
+#to-top {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  z-index: 900;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--glass-solid);
+  border: 1px solid var(--brd-2);
+  color: var(--tx-1);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  box-shadow: var(--sh-md);
+  opacity: 0;
+  transform: translateY(16px) scale(0.85);
+  pointer-events: none;
+  transition: all var(--t-base);
+}
+
+#to-top.is-shown {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+#to-top:hover {
+  border-color: var(--brd-accent);
+  color: var(--ac-1);
+  transform: translateY(-3px);
+  box-shadow: var(--sh-glow-1);
+}
+
+/* Mobile-only sticky CTA */
+.mobile-cta {
+  display: none;
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 880;
+  padding: var(--sp-3) var(--sp-4);
+  padding-bottom: max(var(--sp-3), env(safe-area-inset-bottom));
+  background: var(--glass-solid);
+  border-top: 1px solid var(--brd-1);
+  backdrop-filter: blur(var(--blur-lg));
+  -webkit-backdrop-filter: blur(var(--blur-lg));
+}
+
+@media (max-width: 640px) {
+  .mobile-cta { display: block; }
+  body { padding-bottom: 76px; }
+  #to-top { bottom: 88px; }
+}
